@@ -1,4 +1,5 @@
 import { Reveal } from "../../lib/motion";
+import { useParallax } from "../../lib/hooks";
 
 /* ------------------------------------------------------------------ */
 /*  Why AUREV — four promises set as a typographic ledger. No icons.    */
@@ -25,6 +26,7 @@ const PILLARS = [
 ];
 
 export default function WhyAurev() {
+  const plateRef = useParallax(0.1);
   return (
     <section aria-label="Why AUREV" className="mx-auto max-w-[1600px] container-px py-24 sm:py-28">
       <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
@@ -37,6 +39,34 @@ export default function WhyAurev() {
             Ours are deliberately unglamorous — verify, curate, protect, accompany. Four lines
             you could engrave on a tool, not print on a pitch deck.
           </p>
+
+          {/* the plate — an editorial frame under the promise copy */}
+          <figure className="mt-12">
+            <div className="group relative aspect-[5/4] overflow-hidden bg-[#0b0b0b]">
+              <div
+                ref={plateRef}
+                aria-hidden="true"
+                className="absolute inset-x-0 -top-[7%] bottom-[-7%]"
+                style={{ transform: "translate3d(0, calc(var(--py,0px) * -0.5), 0)" }}
+              >
+                <img
+                  src="/images/why-standard.jpg"
+                  alt="Silver supercar resting on the atelier floor after a night inspection"
+                  loading="lazy"
+                  decoding="async"
+                  className="size-full scale-[1.001] object-cover saturate-[0.72] transition-transform duration-[1400ms] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.035]"
+                />
+              </div>
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.3),transparent_30%,transparent_62%,rgba(5,5,5,0.5))]"
+              />
+            </div>
+            <figcaption className="mt-3 flex items-baseline justify-between gap-4 font-mono text-[9px] uppercase tracking-[0.26em] text-dim">
+              <span>Atelier floor — 02:14, after inspection</span>
+              <span aria-hidden="true">Modena</span>
+            </figcaption>
+          </figure>
         </Reveal>
 
         <ol className="divide-y divide-line border-t border-line">
