@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useSeo } from "../lib/seo";
 import { ButtonLink } from "../components/ui/Button";
 import { Reveal } from "../lib/motion";
+import { asset } from "../lib/asset";
 
 export default function NotFound() {
   useSeo({
@@ -13,7 +14,7 @@ export default function NotFound() {
   return (
     <section className="noise relative flex min-h-[100svh] items-center overflow-hidden">
       <div aria-hidden="true" className="absolute inset-0">
-        <img src="/images/perf-tunnel.jpg" alt="" className="size-full object-cover opacity-25 saturate-[0.5]" />
+        <img src={asset("/images/perf-tunnel.jpg")} alt="" className="size-full object-cover opacity-25 saturate-[0.5]" />
         <span className="absolute inset-0 bg-[linear-gradient(180deg,#050505,rgba(5,5,5,0.55)_40%,#050505)]" />
       </div>
       <div className="relative mx-auto w-full max-w-[1600px] container-px">

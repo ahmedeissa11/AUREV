@@ -5,6 +5,7 @@ import { formatNumber } from "../../lib/format";
 import { useCountUp } from "../../lib/hooks";
 import { Reveal } from "../../lib/motion";
 import { IconArrowRight } from "../ui/icons";
+import { asset } from "../../lib/asset";
 
 /* ------------------------------------------------------------------ */
 /*  Performance — a full-bleed frame with four figures laid over it.    */
@@ -62,7 +63,7 @@ export default function PerformanceSection() {
     <section aria-label="Performance" className="noise relative overflow-hidden bg-void">
       <div aria-hidden="true" className="absolute inset-0">
         <img
-          src="/images/perf-tunnel.jpg"
+          src={asset("/images/perf-tunnel.jpg")}
           alt=""
           loading="lazy"
           className="size-full object-cover object-center opacity-[0.62] saturate-[0.68]"

@@ -1,5 +1,6 @@
 import { Reveal } from "../../lib/motion";
 import { useParallax } from "../../lib/hooks";
+import { asset } from "../../lib/asset";
 
 /* ------------------------------------------------------------------ */
 /*  Why AUREV — four promises set as a typographic ledger. No icons.    */
@@ -50,7 +51,7 @@ export default function WhyAurev() {
                 style={{ transform: "translate3d(0, calc(var(--py,0px) * -0.5), 0)" }}
               >
                 <img
-                  src="/images/why-standard.jpg"
+                  src={asset("/images/why-standard.jpg")}
                   alt="Silver supercar resting on the atelier floor after a night inspection"
                   loading="lazy"
                   decoding="async"

@@ -3,7 +3,10 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 // AUREV — frontend only. No backend proxy; assets are served from /public.
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  // GitHub Pages serves the site from /AUREV/ in production builds only;
+  // dev (and the QA harness) keeps serving from root, exactly as before.
+  base: mode === "production" ? "/AUREV/" : "/",
   plugins: [react(), tailwindcss()],
   server: {
     host: "0.0.0.0",
@@ -24,4 +27,4 @@ export default defineConfig({
     target: "es2020",
     assetsInlineLimit: 2048,
   },
-});
+}));

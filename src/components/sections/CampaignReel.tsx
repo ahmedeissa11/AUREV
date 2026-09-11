@@ -2,6 +2,7 @@ import { useEffect, useRef, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { VEHICLES } from "../../data/vehicles";
 import { formatPrice, formatHp, formatTorque, formatAccel } from "../../lib/format";
+import { asset } from "../../lib/asset";
 
 /* ------------------------------------------------------------------ */
 /*  The Reel — three pinned, scroll-driven stages that follow the hero.*/
@@ -108,7 +109,7 @@ export default function CampaignReel() {
         <div className="reel__pin noise">
           <div className="reel__img" aria-hidden="true">
             <img
-              src="/images/v-huracan.jpg"
+              src={asset("/images/v-huracan.jpg")}
               alt=""
               fetchPriority="high"
               decoding="async"
@@ -157,7 +158,7 @@ export default function CampaignReel() {
         <div className="reel__pin">
           <div className="reel__img inset-0" aria-hidden="true">
             <img
-              src="/images/v-gt3.jpg"
+              src={asset("/images/v-gt3.jpg")}
               alt="Porsche 911 GT3 in GT Silver, front three-quarter view in a dark studio"
               loading="lazy"
               decoding="async"
@@ -255,7 +256,7 @@ export default function CampaignReel() {
               <div className="reel__frame relative overflow-clip bg-[#0b0b0b]">
                 <div className="reel__img inset-0" aria-hidden="true">
                   <img
-                    src="/images/v-gt3-rear.jpg?v=2"
+                    src={asset("/images/v-gt3-rear.jpg?v=2")}
                     alt={`${gt3.brand} ${gt3.model} rear three-quarter with fixed wing, GT Silver`}
                     loading="lazy"
                     decoding="async"

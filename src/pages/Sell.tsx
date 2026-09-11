@@ -7,6 +7,7 @@ import { SectionHeading } from "../components/ui/SectionHeading";
 import { ButtonLink } from "../components/ui/Button";
 import { SelectField, TextArea, TextField } from "../components/ui/Field";
 import { IconCheck, IconClose } from "../components/ui/icons";
+import { asset } from "../lib/asset";
 
 /* ------------------------------------------------------------------ */
 /*  Sell — premium consignment experience + a form that behaves.        */
@@ -141,7 +142,7 @@ export default function Sell() {
       {/* hero */}
       <section className="noise relative overflow-hidden border-b border-line">
         <div aria-hidden="true" className="absolute inset-0">
-          <img src="/images/sell-inspection.jpg" alt="" className="size-full object-cover opacity-35 saturate-[0.7]" loading="eager" />
+          <img src={asset("/images/sell-inspection.jpg")} alt="" className="size-full object-cover opacity-35 saturate-[0.7]" loading="eager" />
           <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.55),#050505_92%)]" />
         </div>
         <div className="relative mx-auto max-w-[1600px] container-px pb-20 pt-36 sm:pb-28 sm:pt-44">

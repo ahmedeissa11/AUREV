@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ButtonLink } from "../ui/Button";
 import { usePrefersReducedMotion } from "../../lib/hooks";
 import { VEHICLES } from "../../data/vehicles";
+import { asset } from "../../lib/asset";
 
 /* ------------------------------------------------------------------ */
 /*  Hero — a scroll-controlled cinematic pass over the handover frame. */
@@ -29,7 +30,7 @@ export default function Hero() {
   useEffect(() => {
     if (loaded) return;
     const img = new Image();
-    img.src = "/images/hero-handover.jpg?v=1";
+    img.src = asset("/images/hero-handover.jpg?v=1");
     img.onload = () => setLoaded(true);
   }, [loaded]);
 
@@ -87,14 +88,14 @@ export default function Hero() {
       <div ref={stageRef} className="hero-film__stage noise">
         {/* depth plane — the same frame, defocused: falls behind the push-in */}
         <div className="hero-film__bg" aria-hidden="true">
-          <img src="/images/hero-handover.jpg?v=1" alt="" className="size-full object-cover" loading="eager" decoding="async" />
+          <img src={asset("/images/hero-handover.jpg?v=1")} alt="" className="size-full object-cover" loading="eager" decoding="async" />
         </div>
 
         {/* foreground plane — sharp, feathered along the roofline so the seam
             reads as depth of field, never as a tear; pushes toward the car */}
         <div className="hero-film__fg" aria-hidden="true">
           <img
-            src="/images/hero-handover.jpg?v=1"
+            src={asset("/images/hero-handover.jpg?v=1")}
             alt=""
             className={`size-full object-cover object-center transition-opacity duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
               loaded ? "opacity-100" : "opacity-0"
@@ -106,7 +107,7 @@ export default function Hero() {
           {/* relit pass of the same frame — scroll crossfades it over the
               original: lamps and underglow ignite inside the photo itself */}
           <img
-            src="/images/hero-handover-lit.jpg"
+            src={asset("/images/hero-handover-lit.jpg")}
             alt=""
             aria-hidden="true"
             className={`hero-film__lit absolute inset-0 size-full object-cover object-center ${

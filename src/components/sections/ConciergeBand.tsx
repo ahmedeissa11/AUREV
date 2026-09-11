@@ -1,6 +1,7 @@
 import { Reveal } from "../../lib/motion";
 import { ButtonLink } from "../ui/Button";
 import { IconPhone } from "../ui/icons";
+import { asset } from "../../lib/asset";
 
 /* ------------------------------------------------------------------ */
 /*  Concierge band — photo right, promise left. Flat, not filtered.     */
@@ -34,7 +35,7 @@ export default function ConciergeBand() {
 
       <figure className="relative min-h-[280px] overflow-hidden lg:min-h-full">
         <img
-          src="/images/concierge-night.jpg"
+          src={asset("/images/concierge-night.jpg")}
           alt="A client collected at the AUREV atelier, after dark"
           loading="lazy"
           className="absolute inset-0 size-full object-cover"

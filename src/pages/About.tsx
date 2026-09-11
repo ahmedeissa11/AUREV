@@ -4,6 +4,7 @@ import { Reveal, stagger } from "../lib/motion";
 import { useParallax } from "../lib/hooks";
 import { ButtonLink } from "../components/ui/Button";
 import { SectionHeading } from "../components/ui/SectionHeading";
+import { asset } from "../lib/asset";
 
 /* ------------------------------------------------------------------ */
 /*  About — cinematic house story: type, photography, counts.          */
@@ -125,7 +126,7 @@ export default function About() {
       {/* full-bleed image */}
       <section aria-label="The AUREV atelier" className="relative h-[52vh] min-h-[360px] overflow-hidden border-y border-line sm:h-[64vh]">
         <div ref={parallaxRef} aria-hidden="true" className="absolute inset-x-0 -top-[10%] bottom-[-10%]" style={{ transform: "translate3d(0, calc(var(--py,0px) * -0.5), 0)" }}>
-          <img src="/images/about-architecture.jpg" alt="" className="size-full object-cover opacity-70 saturate-[0.65]" loading="lazy" />
+          <img src={asset("/images/about-architecture.jpg")} alt="" className="size-full object-cover opacity-70 saturate-[0.65]" loading="lazy" />
         </div>
         <span aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.4),transparent_30%,rgba(5,5,5,0.85)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 mx-auto max-w-[1600px] container-px pb-8">

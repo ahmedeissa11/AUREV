@@ -1,4 +1,5 @@
 import type { Brand, Vehicle } from "./types";
+import { asset } from "../lib/asset";
 
 /* ------------------------------------------------------------------ */
 /*  AUREV inventory — mock data. Shape mirrors the future API rows.   */
@@ -31,17 +32,17 @@ export const VEHICLES: Vehicle[] = [
     badge: "One of 40",
     images: [
       {
-        src: "/images/v-sf90.jpg",
+        src: asset("/images/v-sf90.jpg"),
         alt: "Ferrari SF90 Stradale Assetto Fiorano, front three-quarter view in a dark studio",
         label: "Front Three-Quarter",
       },
       {
-        src: "/images/v-sf90-rear.jpg",
+        src: asset("/images/v-sf90-rear.jpg"),
         alt: "Ferrari SF90 Stradale Assetto Fiorano, rear three-quarter view showing quad tail lights and fixed wing",
         label: "Rear Three-Quarter",
       },
       {
-        src: "/images/v-sf90-interior.jpg",
+        src: asset("/images/v-sf90-interior.jpg"),
         alt: "Ferrari SF90 cockpit with carbon fibre steering wheel and Alcantara trim",
         label: "Cockpit",
       },
@@ -89,7 +90,7 @@ export const VEHICLES: Vehicle[] = [
     badge: "Last V10",
     images: [
       {
-        src: "/images/v-huracan.jpg",
+        src: asset("/images/v-huracan.jpg"),
         alt: "Lamborghini Huracán EVO Spyder, rear three-quarter view under crimson studio light",
         label: "Rear Three-Quarter",
       },
@@ -135,12 +136,12 @@ export const VEHICLES: Vehicle[] = [
     featured: true,
     images: [
       {
-        src: "/images/v-gt3.jpg",
+        src: asset("/images/v-gt3.jpg"),
         alt: "Porsche 911 GT3 in GT Silver, front three-quarter view in a dark studio",
         label: "Front Three-Quarter",
       },
       {
-        src: "/images/v-gt3-rear.jpg?v=2",
+        src: asset("/images/v-gt3-rear.jpg?v=2"),
         alt: "Porsche 911 GT3 rear three-quarter view, fixed wing and mesh engine cover",
         label: "Rear / Wing",
       },
@@ -185,12 +186,12 @@ export const VEHICLES: Vehicle[] = [
     featured: false,
     images: [
       {
-        src: "/images/v-720s.jpg",
+        src: asset("/images/v-720s.jpg"),
         alt: "McLaren 720S in Midnight Blue, low front three-quarter view in a dark studio",
         label: "Front Low Angle",
       },
       {
-        src: "/images/v-720s-rear.jpg",
+        src: asset("/images/v-720s-rear.jpg"),
         alt: "McLaren 720S rear three-quarter view, slim tail lights and central exhausts",
         label: "Rear",
       },
@@ -236,7 +237,7 @@ export const VEHICLES: Vehicle[] = [
     badge: "New Arrival",
     images: [
       {
-        src: "/images/v-db12.jpg",
+        src: asset("/images/v-db12.jpg"),
         alt: "Aston Martin DB12 in Iridium Silver, front three-quarter view in a dark studio",
         label: "Front Three-Quarter",
       },
@@ -281,7 +282,7 @@ export const VEHICLES: Vehicle[] = [
     featured: false,
     images: [
       {
-        src: "/images/v-continental.jpg",
+        src: asset("/images/v-continental.jpg"),
         alt: "Bentley Continental GT Speed in Sequin Blue, front three-quarter view under studio light",
         label: "Front Three-Quarter",
       },
@@ -327,7 +328,7 @@ export const VEHICLES: Vehicle[] = [
     badge: "Bespoke",
     images: [
       {
-        src: "/images/v-ghost.jpg",
+        src: asset("/images/v-ghost.jpg"),
         alt: "Rolls-Royce Ghost Series II in Arctic White, side three-quarter view in a dark studio",
         label: "Side Three-Quarter",
       },
@@ -372,7 +373,7 @@ export const VEHICLES: Vehicle[] = [
     featured: false,
     images: [
       {
-        src: "/images/v-amggt.jpg",
+        src: asset("/images/v-amggt.jpg"),
         alt: "Mercedes-AMG GT 63 S 4-Door Coupe in Obsidian Black, front low angle in a dark studio",
         label: "Front Low Angle",
       },
@@ -417,7 +418,7 @@ export const VEHICLES: Vehicle[] = [
     featured: false,
     images: [
       {
-        src: "/images/v-m4.jpg",
+        src: asset("/images/v-m4.jpg"),
         alt: "BMW M4 Competition in Isle of Man Green, rear three-quarter view in a dark studio",
         label: "Rear Three-Quarter",
       },
@@ -462,7 +463,7 @@ export const VEHICLES: Vehicle[] = [
     featured: false,
     images: [
       {
-        src: "/images/v-rs6.jpg",
+        src: asset("/images/v-rs6.jpg"),
         alt: "Audi RS 6 Avant performance in Ascari Blue, side three-quarter view in a dark studio",
         label: "Side Three-Quarter",
       },
@@ -507,7 +508,7 @@ export const VEHICLES: Vehicle[] = [
     featured: false,
     images: [
       {
-        src: "/images/v-mc20.jpg",
+        src: asset("/images/v-mc20.jpg"),
         alt: "Maserati MC20 in Rosso Vincente, front three-quarter view in a dark studio",
         label: "Front Three-Quarter",
       },
@@ -553,7 +554,7 @@ export const VEHICLES: Vehicle[] = [
     badge: "SV Commission",
     images: [
       {
-        src: "/images/v-range.jpg",
+        src: asset("/images/v-range.jpg"),
         alt: "Range Rover SV Autobiography LWB in satin grey, three-quarter front view in a dark studio",
         label: "Three-Quarter Front",
       },
@@ -598,7 +599,7 @@ export const VEHICLES: Vehicle[] = [
     featured: false,
     images: [
       {
-        src: "/images/v-taycan.jpg",
+        src: asset("/images/v-taycan.jpg"),
         alt: "Porsche Taycan Turbo S in Etna Blue, front three-quarter view in a dark studio",
         label: "Front Three-Quarter",
       },
@@ -630,84 +631,84 @@ export const BRANDS: Brand[] = [
     country: "Maranello, Italy",
     founded: 1947,
     blurb: "Hybrid V8 violence, delivered with a service book.",
-    image: "/images/v-sf90.jpg",
+    image: asset("/images/v-sf90.jpg"),
   },
   {
     name: "Lamborghini",
     country: "Sant'Agata, Italy",
     founded: 1963,
     blurb: "The last naturally aspirated V10s are here now.",
-    image: "/images/v-huracan.jpg",
+    image: asset("/images/v-huracan.jpg"),
   },
   {
     name: "Porsche",
     country: "Stuttgart, Germany",
     founded: 1931,
     blurb: "Engineering so precise it feels like a threat.",
-    image: "/images/v-gt3.jpg",
+    image: asset("/images/v-gt3.jpg"),
   },
   {
     name: "McLaren",
     country: "Woking, England",
     founded: 1963,
     blurb: "Carbon tubs, hydraulic steering, no compromises.",
-    image: "/images/v-720s.jpg",
+    image: asset("/images/v-720s.jpg"),
   },
   {
     name: "Aston Martin",
     country: "Gaydon, England",
     founded: 1913,
     blurb: "The super-tourer, redefined for a new decade.",
-    image: "/images/v-db12.jpg",
+    image: asset("/images/v-db12.jpg"),
   },
   {
     name: "Bentley",
     country: "Crewe, England",
     founded: 1919,
     blurb: "Continental GT — the long-distance weapon.",
-    image: "/images/v-continental.jpg",
+    image: asset("/images/v-continental.jpg"),
   },
   {
     name: "Rolls-Royce",
     country: "Goodwood, England",
     founded: 1904,
     blurb: "Silence, commissioned by the centimetre.",
-    image: "/images/v-ghost.jpg",
+    image: asset("/images/v-ghost.jpg"),
   },
   {
     name: "Mercedes-AMG",
     country: "Affalterbach, Germany",
     founded: 1967,
     blurb: "One man, one engine — and 630 horsepower.",
-    image: "/images/v-amggt.jpg",
+    image: asset("/images/v-amggt.jpg"),
   },
   {
     name: "BMW M",
     country: "Garching, Germany",
     founded: 1972,
     blurb: "The six-cylinder argument, still won.",
-    image: "/images/v-m4.jpg",
+    image: asset("/images/v-m4.jpg"),
   },
   {
     name: "Audi Sport",
     country: "Neckarsulm, Germany",
     founded: 1983,
     blurb: "Quattro physics, estate-car pragmatism.",
-    image: "/images/v-rs6.jpg",
+    image: asset("/images/v-rs6.jpg"),
   },
   {
     name: "Maserati",
     country: "Modena, Italy",
     founded: 1914,
     blurb: "Nettuno — an F1 idea with number plates.",
-    image: "/images/v-mc20.jpg",
+    image: asset("/images/v-mc20.jpg"),
   },
   {
     name: "Range Rover",
     country: "Solihull, England",
     founded: 1970,
     blurb: "The SV suites. A hotel that can ford a river.",
-    image: "/images/v-range.jpg",
+    image: asset("/images/v-range.jpg"),
   },
 ];
 

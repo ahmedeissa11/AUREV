@@ -3,6 +3,7 @@ import { findVehicle } from "../../data/vehicles";
 import { formatAccel, formatHp, formatMileage, formatPrice, formatSpeed, formatTorque } from "../../lib/format";
 import { Reveal } from "../../lib/motion";
 import { IconArrowRight } from "../ui/icons";
+import { asset } from "../../lib/asset";
 
 /* ------------------------------------------------------------------ */
 /*  Featured vehicle — a magazine cover in HTML: bleed image left,      */
@@ -25,7 +26,7 @@ export default function FeaturedVehicle() {
         {/* photograph — full-bleed, captioned like a plate */}
         <figure className="relative order-1 overflow-hidden lg:order-2">
           <img
-            src="/images/v-sf90-rear.jpg"
+            src={asset("/images/v-sf90-rear.jpg")}
             alt={car.images[1]?.alt ?? `${car.brand} ${car.model}`}
             loading="lazy"
             className="absolute inset-0 size-full object-cover"

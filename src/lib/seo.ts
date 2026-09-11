@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { asset } from "./asset";
 
 /* ------------------------------------------------------------------ */
 /*  SEO — client-side document head management.                       */
@@ -32,7 +33,7 @@ export function useSeo({
   description = "AUREV — a curated marketplace of extraordinary automobiles. Verified supercars, grand tourers and performance vehicles, delivered by concierge.",
   path,
   brandSuffix = true,
-  image = "/images/hero-handover.jpg",
+  image = asset("/images/hero-handover.jpg"),
   jsonLd,
 }: SeoInput) {
   useEffect(() => {

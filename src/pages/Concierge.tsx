@@ -7,6 +7,7 @@ import { useSeo } from "../lib/seo";
 import { Reveal } from "../lib/motion";
 import { SelectField, TextArea, TextField } from "../components/ui/Field";
 import { ButtonLink } from "../components/ui/Button";
+import { asset } from "../lib/asset";
 import {
   IconCheck,
   IconMail,
@@ -266,7 +267,7 @@ export default function Concierge() {
           {/* direct lines column */}
           <aside aria-label="Direct contact" className="lg:pt-2">
             <div className="border-t-2 border-mist/70 bg-[#0b0b0b]">
-              <img src="/images/concierge-night.jpg" alt="AUREV atelier at night" loading="lazy" className="aspect-[16/9] w-full object-cover opacity-80" />
+              <img src={asset("/images/concierge-night.jpg")} alt="AUREV atelier at night" loading="lazy" className="aspect-[16/9] w-full object-cover opacity-80" />
               <div className="p-6 sm:p-8">
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-crimson-bright">Direct lines</p>
                 <ul className="mt-5 space-y-4">
