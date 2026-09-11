@@ -873,6 +873,10 @@
     background:
       linear-gradient(180deg, #121211 0%, #0d0d0c 58%, #0b0b0a 100%);
     border: 1px solid var(--color-line);
+    /* scroll-linked drift rides on the individual translate property so it
+       composes with (never fights) the flip keyframes on `transform` */
+    translate: 0 var(--dy, 0px);
+    transition: translate 0.25s linear;
   }
   @media (prefers-reduced-motion: no-preference) {
     /* armed-but-unseen: folded down, back-facing — only once JS is live,

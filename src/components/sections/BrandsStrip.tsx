@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { usePrefersReducedMotion } from "../../lib/hooks";
 import { Link } from "react-router-dom";
 import { BRANDS, vehicleCountForBrand } from "../../data/vehicles";
 import { Reveal } from "../../lib/motion";
@@ -13,6 +14,52 @@ import { Reveal } from "../../lib/motion";
 
 export default function BrandsStrip() {
   const gridRef = useRef<HTMLUListElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const reduced = usePrefersReducedMotion();
+
+  /* scroll-linked column drift: each column breathes vertically at its own
+     rate/direction while the index crosses the viewport — cinematic,
+     bounded (±60px), rAF-throttled, active only while in view */
+  useEffect(() => {
+    const sec = sectionRef.current;
+    const grid = gridRef.current;
+    if (!sec || !grid || reduced) return;
+    const cards = [...grid.querySelectorAll<HTMLElement>(".brand-card")];
+    const drift = [46, -60, 34, -50];
+    let visible = false;
+    let ticking = false;
+    const paint = () => {
+      ticking = false;
+      const r = sec.getBoundingClientRect();
+      const q = Math.min(1, Math.max(0, (window.innerHeight - r.top) / (r.height + window.innerHeight)));
+      const w = q * 2 - 1; // −1 … 1 across the passage
+      cards.forEach((c, i) => {
+        const col = i % 4;
+        const amp = drift[col % drift.length];
+        c.style.setProperty("--dy", `${(amp * w * (visible ? 1 : 0)).toFixed(1)}px`);
+      });
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(paint);
+    };
+    const io = new IntersectionObserver(
+      ([e]) => {
+        visible = e.isIntersecting;
+        if (visible) window.addEventListener("scroll", onScroll, { passive: true });
+        else window.removeEventListener("scroll", onScroll);
+        paint();
+      },
+      { threshold: 0 }
+    );
+    io.observe(sec);
+    paint();
+    return () => {
+      io.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [reduced]);
 
   useEffect(() => {
     const el = gridRef.current;
@@ -37,7 +84,7 @@ export default function BrandsStrip() {
   }, []);
 
   return (
-    <section aria-label="Brands" className="border-y border-line bg-coal">
+    <section ref={sectionRef} aria-label="Brands" className="border-y border-line bg-coal">
       <div className="mx-auto max-w-[1600px] container-px py-20 sm:py-28">
         <Reveal className="flex flex-col gap-4 sm:flex-row sm:items-baseline sm:justify-between">
           <h2 className="font-editorial text-[1.7rem] leading-snug tracking-[0.005em] text-mist sm:text-[2rem]">
