@@ -10,8 +10,9 @@ import {
   IconCheck,
 } from "../components/ui/icons";
 
-const COLUMNS: { title: string; links: { label: string; to: string }[] }[] = [
+const COLUMNS: { no: string; title: string; links: { label: string; to: string }[] }[] = [
   {
+    no: "01",
     title: "Explore",
     links: [
       { label: "The Collection", to: "/collection" },
@@ -21,7 +22,8 @@ const COLUMNS: { title: string; links: { label: string; to: string }[] }[] = [
     ],
   },
   {
-    title: "Own",
+    no: "02",
+    title: "Ownership",
     links: [
       { label: "Sell Your Car", to: "/sell" },
       { label: "Concierge", to: "/concierge" },
@@ -52,76 +54,41 @@ export default function Footer() {
 
   return (
     <footer className="relative mt-px border-t border-line bg-coal">
-      {/* watermark */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 -top-2 select-none overflow-hidden"
-      >
-        <span className="block translate-y-[28%] text-center font-display text-[19vw] font-black uppercase leading-none tracking-[0.06em] text-[#0d0d0d]">
-          AUREV
-        </span>
-      </div>
-
       <div className="relative mx-auto max-w-[1600px] container-px">
-        <div className="grid gap-10 pt-20 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.4fr] lg:gap-8">
+        {/* ————— the sign-off ————— */}
+        <div className="grid gap-12 pt-20 pb-16 lg:grid-cols-[1.3fr_1fr] lg:gap-24">
           <div>
             <Logo />
-            <p className="mt-6 max-w-72 text-sm leading-relaxed text-ash">
-              A curated marketplace of extraordinary automobiles. Verified, delivered, and
-              supported by a private concierge — from discovery to handover.
+            <p className="mt-9 eyebrow">The house — Port of Monaco · Modena</p>
+            <p className="mt-5 max-w-2xl font-editorial text-[clamp(1.85rem,3.5vw,3.05rem)] leading-[1.16] tracking-[0.004em] text-mist">
+              We stay on the line{" "}
+              <em className="text-ember">after</em> the wire clears. One number, one standard —
+              no showroom.
             </p>
-            <ul className="mt-7 flex gap-2.5">
-              {SOCIALS.map(({ label, icon: Icon, href }) => (
-                <li key={label}>
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`AUREV on ${label}`}
-                    className="grid size-10 place-items-center border border-line text-ash transition-all duration-300 hover:-translate-y-0.5 hover:border-crimson hover:text-mist"
-                  >
-                    <Icon size={16} />
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <p className="mt-8 max-w-md text-[13.5px] leading-relaxed text-ash">
+              A curated marketplace of extraordinary automobiles: verified, delivered, and
+              supported privately — from first discovery to handover on the dock.
+            </p>
           </div>
 
-          {COLUMNS.map((col) => (
-            <nav key={col.title} aria-label={col.title}>
-              <p className="label-mono !text-mist">{col.title}</p>
-              <ul className="mt-5 space-y-3">
-                {col.links.map((l) => (
-                  <li key={l.label}>
-                    <Link
-                      to={l.to}
-                      className="group inline-flex items-center gap-2 text-sm text-ash transition-colors hover:text-mist"
-                    >
-                      {l.label}
-                      <IconArrowRight
-                        size={13}
-                        className="-translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 group-hover:text-crimson"
-                      />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
-
-          <div>
+          {/* the dispatch — engraved field, no box */}
+          <div className="lg:pt-14">
             <p className="label-mono !text-mist">The List</p>
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-ash">
-              One dispatch a month. New acquisitions, private viewings, and stories — no noise.
+            <p className="mt-4 max-w-xs text-[13.5px] leading-relaxed text-ash">
+              One dispatch a month. New acquisitions, private viewings, stories — no noise, no
+              promotions.
             </p>
             {state === "done" ? (
-              <p className="mt-6 flex items-center gap-3 border border-crimson/50 bg-[#16090c] px-4 py-3.5 text-sm text-mist" role="status">
-                <IconCheck size={16} className="shrink-0 text-crimson-bright" />
+              <p
+                role="status"
+                className="mt-8 flex items-center gap-3 border-b border-crimson/55 pb-3 font-mono text-[10px] uppercase tracking-[0.24em] text-mist"
+              >
+                <IconCheck size={14} className="shrink-0 text-crimson-bright" />
                 You're on the list. Welcome to AUREV.
               </p>
             ) : (
-              <form onSubmit={subscribe} noValidate className="mt-6">
-                <div className="flex border border-line-strong bg-[#0d0d0d] transition-colors focus-within:border-crimson">
+              <form onSubmit={subscribe} noValidate className="mt-8">
+                <div className="flex items-center gap-5 border-b border-line-strong pb-3 transition-colors duration-300 focus-within:border-crimson">
                   <label htmlFor="footer-email" className="sr-only">
                     Email address
                   </label>
@@ -135,19 +102,23 @@ export default function Footer() {
                     }}
                     placeholder="your@email.com"
                     aria-invalid={state === "error" || undefined}
-                    className="w-full bg-transparent px-4 py-3.5 text-sm outline-none placeholder:text-dim"
+                    className="w-full bg-transparent text-[14px] text-mist outline-none placeholder:text-dim"
                   />
                   <button
                     type="submit"
-                    className="shrink-0 bg-crimson px-4 text-white transition-colors hover:bg-crimson-bright"
                     aria-label="Subscribe to the newsletter"
+                    className="group inline-flex shrink-0 items-center gap-2 font-mono text-[10px] uppercase tracking-[0.28em] text-mist transition-colors duration-300 hover:text-crimson-bright"
                   >
-                    <IconArrowRight size={16} />
+                    Join
+                    <IconArrowRight
+                      size={13}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
                   </button>
                 </div>
                 {state === "error" && (
-                  <p role="alert" className="mt-2 text-xs text-[#e0717f]">
-                    Please enter a valid email address.
+                  <p role="alert" className="mt-2.5 font-mono text-[9.5px] uppercase tracking-[0.18em] text-[#e0717f]">
+                    A valid email, please.
                   </p>
                 )}
               </form>
@@ -155,12 +126,70 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-line py-8 md:flex-row md:items-center md:justify-between">
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-dim">
-            © {new Date().getFullYear()} AUREV · Luxury Automotive — All rights reserved
+        {/* ————— navigation + channels ————— */}
+        <div className="grid gap-10 border-t border-line py-14 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1.25fr] lg:gap-16">
+          {COLUMNS.map((col) => (
+            <nav key={col.title} aria-label={col.title}>
+              <p className="flex items-baseline gap-4 font-mono text-[9.5px] uppercase tracking-[0.3em] text-dim">
+                <span className="text-crimson">{col.no}</span>
+                {col.title}
+                <span aria-hidden="true" className="inline-block h-px flex-1 bg-line" />
+              </p>
+              <ul className="mt-5 space-y-3">
+                {col.links.map((l) => (
+                  <li key={l.label}>
+                    <Link
+                      to={l.to}
+                      className="group relative inline-block text-[14px] text-ash transition-colors duration-300 hover:text-mist after:absolute after:-bottom-1 after:left-1/2 after:h-px after:w-0 after:-translate-x-1/2 after:bg-crimson after:transition-[width] after:duration-500 after:ease-[cubic-bezier(.16,1,.3,1)] hover:after:w-full"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+
+          <div>
+            <p className="flex items-baseline gap-4 font-mono text-[9.5px] uppercase tracking-[0.3em] text-dim">
+              <span className="text-crimson">03</span>
+              Channels
+              <span aria-hidden="true" className="inline-block h-px flex-1 bg-line" />
+            </p>
+            <ul className="mt-5 flex flex-wrap items-center gap-x-7 gap-y-3">
+              {SOCIALS.map(({ label, icon: Icon, href }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`AUREV on ${label}`}
+                    className="group inline-flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-ash transition-colors duration-300 hover:text-mist"
+                  >
+                    <Icon size={14} className="opacity-55 transition-opacity duration-300 group-hover:opacity-100" />
+                    <span className="relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-crimson/70 after:transition-all after:duration-500 group-hover:after:w-full">
+                      {label}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-[#55534e]">
+              Viewing rooms by appointment
+              <br />
+              Port of Monaco — sea · Modena — road
+            </p>
+          </div>
+        </div>
+
+        {/* ————— colophon ————— */}
+        <div className="flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-line py-8">
+          <p className="flex items-center gap-3 font-mono text-[9.5px] uppercase tracking-[0.22em] text-dim">
+            <span aria-hidden="true" className="inline-block size-[5px] bg-crimson" />©{" "}
+            {new Date().getFullYear()} AUREV — all rights reserved
           </p>
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-dim">
-            Fictional inventory for portfolio use · No affiliation with listed marques
+          <p className="font-mono text-[9.5px] uppercase tracking-[0.22em] text-[#55534e]">
+            Fictional inventory for portfolio use · no affiliation with listed marques
           </p>
           <a
             href="#main"
@@ -168,10 +197,13 @@ export default function Footer() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="group inline-flex items-center gap-2 self-start font-mono text-[10px] uppercase tracking-[0.2em] text-ash transition-colors hover:text-mist md:self-auto"
+            className="group ml-auto inline-flex items-center gap-3 font-mono text-[9.5px] uppercase tracking-[0.22em] text-ash transition-colors duration-300 hover:text-mist"
           >
             Back to top
-            <span className="inline-block h-px w-6 bg-line-strong transition-all duration-300 group-hover:w-10 group-hover:bg-crimson" />
+            <span
+              aria-hidden="true"
+              className="inline-block h-px w-8 bg-line-strong transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:w-12 group-hover:bg-crimson"
+            />
           </a>
         </div>
       </div>
