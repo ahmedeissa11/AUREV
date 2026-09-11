@@ -102,21 +102,6 @@ export default function Hero() {
             decoding="async"
             onLoad={() => setLoaded(true)}
           />
-          {/* headlights — anchored to the image frame itself, ignited by the
-              first strokes of scroll; warm ivory, restrained spill */}
-          <div className="hero-film__imgspace" aria-hidden="true">
-            <div className="hero-film__lights">
-              <i className="lamp lamp--near" />
-              <i className="lamp lamp--far" />
-              <i className="lamp lamp--bounce" />
-              <i className="lamp lamp--spill" />
-              <div className="hero-film__leds">
-                <i className="lamp lamp--led-wash" />
-                <i className="lamp lamp--led-front" />
-                <i className="lamp lamp--led-side" />
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* grading — legibility, not decoration */}
