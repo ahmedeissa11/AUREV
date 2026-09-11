@@ -29,9 +29,9 @@ function Stat({
   return (
     <div className="border-t border-mist/15 pt-5">
       <p className="font-mono text-[9.5px] uppercase tracking-[0.3em] text-mist/50">{label}</p>
-      <p className="mt-3 font-display text-5xl font-black leading-none tracking-[-0.04em] text-mist sm:text-[3.6rem]">
+      <p className="mt-2.5 font-display text-[1.85rem] font-extrabold leading-none tracking-[-0.035em] text-mist sm:text-[2.45rem]">
         {shown}
-        <span className="font-semibold text-mist/60">{suffix}</span>
+        <span className="text-[0.62em] font-semibold text-mist/55">{suffix}</span>
       </p>
     </div>
   );
@@ -65,12 +65,12 @@ export default function PerformanceSection() {
           src="/images/perf-tunnel.jpg"
           alt=""
           loading="lazy"
-          className="size-full object-cover object-center opacity-[0.5] saturate-[0.6]"
+          className="size-full object-cover object-center opacity-[0.62] saturate-[0.68]"
         />
-        <span className="absolute inset-0 bg-[linear-gradient(180deg,#050505_0%,rgba(5,5,5,0.42)_26%,rgba(5,5,5,0.66)_68%,#050505_100%)]" />
+        <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.62)_0%,rgba(5,5,5,0.3)_34%,rgba(5,5,5,0.55)_68%,#050505_100%)]" />
       </div>
 
-      <div className="relative mx-auto max-w-[1600px] container-px py-24 sm:py-32">
+      <div className="relative mx-auto flex min-h-[92svh] max-w-[1600px] flex-col justify-end container-px pt-32 pb-16 sm:pt-44 sm:pb-20">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.35fr] lg:items-end">
           <Reveal>
             <p className="eyebrow">Reference vehicle — {car.brand} {car.model}</p>
