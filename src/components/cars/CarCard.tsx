@@ -96,7 +96,7 @@ export default function CarCard({
           <StatusMark status={v.status} className="hidden md:inline-flex" />
         </div>
         {!hideActions && (
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             {onQuickView && (
               <button
                 type="button"

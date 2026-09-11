@@ -50,11 +50,13 @@ export default function CampaignReel() {
         el.style.setProperty("--p", p.toFixed(4));
         if (el === finalStage) p3 = p;
       }
-      for (const row of rows) {
+      for (let i = 0; i < rows.length; i++) {
+        const row = rows[i];
         const t = Number(row.dataset.reelRow) || 0;
         row.classList.toggle("is-lit", p3 >= t);
         row.classList.toggle("is-active", p3 >= t && p3 < t + 0.155);
-        row.classList.toggle("is-past", p3 >= t + 0.155);
+        // the dim-to-past only applies when another row follows to take focus
+        row.classList.toggle("is-past", p3 >= t + 0.155 && i < rows.length - 1);
       }
     };
 
