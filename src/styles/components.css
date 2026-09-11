@@ -895,40 +895,98 @@
     pointer-events: none;
   }
   .hero-film__lights .lamp--near {
-    left: 52.2%;
-    top: 64.7%;
-    width: 3.3%;
-    height: 4%;
+    left: 52.8%;
+    top: 62.4%;
+    width: 5.6%;
+    height: 4.6%;
     background: radial-gradient(
       closest-side,
-      rgba(255, 249, 226, 0.98),
-      rgba(255, 228, 156, 0.72) 34%,
-      rgba(255, 208, 122, 0.22) 62%,
-      transparent 82%
+      rgba(255, 251, 236, 1),
+      rgba(255, 233, 168, 0.95) 32%,
+      rgba(255, 214, 134, 0.55) 58%,
+      rgba(255, 204, 120, 0.18) 78%,
+      transparent 92%
     );
   }
   .hero-film__lights .lamp--far {
-    left: 56.1%;
-    top: 60.2%;
-    width: 2%;
-    height: 2.4%;
+    left: 59.9%;
+    top: 57%;
+    width: 4.8%;
+    height: 3.8%;
     background: radial-gradient(
       closest-side,
-      rgba(255, 246, 216, 0.8),
-      rgba(255, 222, 146, 0.4) 40%,
+      rgba(255, 250, 231, 1),
+      rgba(255, 230, 160, 0.9) 36%,
+      rgba(255, 214, 132, 0.42) 62%,
+      transparent 88%
+    );
+  }
+  /* warm bounce of the lamps on the hood edge */
+  .hero-film__lights .lamp--bounce {
+    left: 56%;
+    top: 57.5%;
+    width: 12%;
+    height: 5%;
+    background: radial-gradient(
+      closest-side,
+      rgba(255, 226, 160, 0.14),
       transparent 78%
     );
   }
   .hero-film__lights .lamp--spill {
-    left: 49%;
-    top: 80.5%;
+    left: 50%;
+    top: 71.5%;
     width: 24%;
-    height: 7.5%;
+    height: 8%;
     background: radial-gradient(
       closest-side,
-      rgba(255, 226, 160, 0.17),
-      rgba(255, 214, 140, 0.07) 52%,
-      transparent 80%
+      rgba(255, 230, 170, 0.4),
+      rgba(255, 218, 148, 0.18) 52%,
+      transparent 82%
+    );
+  }
+
+  /* blue LED underglow — ignites just after the headlamps */
+  .hero-film__leds {
+    position: absolute;
+    inset: 0;
+    opacity: clamp(0, calc(var(--hp, 0) * 9 - 0.3), 1);
+    transform: scale(calc(0.95 + min(var(--hp, 0), 0.15) / 0.15 * 0.05));
+  }
+  .hero-film__leds .lamp--led-front {
+    left: 51.5%;
+    top: 70.8%;
+    width: 15%;
+    height: 3.6%;
+    background: radial-gradient(
+      closest-side,
+      rgba(132, 194, 255, 0.5),
+      rgba(64, 132, 255, 0.17) 52%,
+      transparent 82%
+    );
+  }
+  .hero-film__leds .lamp--led-side {
+    left: 70%;
+    top: 73.2%;
+    width: 26%;
+    height: 2.8%;
+    background: radial-gradient(
+      closest-side,
+      rgba(120, 186, 255, 0.38),
+      rgba(58, 126, 255, 0.13) 52%,
+      transparent 82%
+    );
+  }
+  .hero-film__leds .lamp--led-wash {
+    left: 61%;
+    top: 68.5%;
+    width: 28%;
+    height: 5.5%;
+    background: radial-gradient(
+      closest-side,
+      rgba(96, 158, 255, 0.13),
+      rgba(70, 130, 255, 0.05) 55%,
+      transparent 78%
     );
   }
 
