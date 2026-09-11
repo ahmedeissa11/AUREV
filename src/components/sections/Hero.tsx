@@ -15,7 +15,7 @@ export default function Hero() {
   useEffect(() => {
     if (loaded) return;
     const img = new Image();
-    img.src = "/images/hero-main.jpg?v=2";
+    img.src = "/images/hero-night.jpg?v=1";
     img.onload = () => setLoaded(true);
   }, [loaded]);
 
@@ -29,7 +29,7 @@ export default function Hero() {
         style={{ transform: "translate3d(0, calc(var(--py, 0px) * -0.3), 0) scale(1.03)" }}
       >
         <img
-          src="/images/hero-main.jpg?v=2"
+          src="/images/hero-night.jpg?v=1"
           alt=""
           className={`size-full object-cover object-center transition-opacity duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
             loaded ? "opacity-100" : "opacity-0"

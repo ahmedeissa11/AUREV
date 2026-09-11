@@ -32,7 +32,7 @@ export function useSeo({
   description = "AUREV — a curated marketplace of extraordinary automobiles. Verified supercars, grand tourers and performance vehicles, delivered by concierge.",
   path,
   brandSuffix = true,
-  image = "/images/hero-main.jpg",
+  image = "/images/hero-night.jpg",
   jsonLd,
 }: SeoInput) {
   useEffect(() => {
