@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { useModalBehaviour, useScrollLock } from "../lib/hooks";
 import { IconClose, IconArrowRight, IconPhone, IconMail } from "../components/ui/icons";
 import { Logo } from "../components/ui/Logo";
+import { ButtonLink } from "../components/ui/Button";
 
 /* ------------------------------------------------------------------ */
 /*  Mobile menu — designed, not collapsed: full-bleed editorial list. */
@@ -76,7 +77,12 @@ export default function MobileMenu({
             ))}
           </ul>
 
-          <div className="menu-stagger mt-8 flex gap-3" style={{ animationDelay: "480ms" }}>
+          <div className="menu-stagger mt-8" style={{ animationDelay: "480ms" }}>
+            <ButtonLink to="/sell" variant="primary" arrow className="w-full justify-center">
+              Sell Your Car
+            </ButtonLink>
+          </div>
+          <div className="menu-stagger mt-3 flex gap-3" style={{ animationDelay: "560ms" }}>
             <Link
               to="/wishlist"
               onClick={onClose}

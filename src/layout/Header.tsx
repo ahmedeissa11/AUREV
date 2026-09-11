@@ -8,10 +8,11 @@ import { IconHeart, IconMenu, IconSearch } from "../components/ui/icons";
 import SearchOverlay from "./SearchOverlay";
 import MobileMenu from "./MobileMenu";
 
+/* "Sell Your Car" lives in the CTA button + mobile menu — the centre
+   nav stays four words, like a masthead, not a duplicate of the button */
 const NAV = [
   { to: "/collection", label: "Collection" },
   { to: "/brands", label: "Brands" },
-  { to: "/sell", label: "Sell Your Car" },
   { to: "/about", label: "About" },
   { to: "/concierge", label: "Concierge" },
 ];
@@ -59,12 +60,12 @@ export default function Header() {
         >
           <Logo compact={scrolled} />
 
-          <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
+          <nav aria-label="Primary" className="hidden items-center gap-9 lg:flex xl:gap-12">
             {NAV.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
-                className={({ isActive }) => `nav-link ${isActive ? "" : ""}`}
+                className={({ isActive }) => `nav-link${isActive ? " is-active" : ""}`}
               >
                 {item.label}
               </NavLink>
