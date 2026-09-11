@@ -10,7 +10,13 @@ await sleep(700);
 const geo = await page.evaluate(() => { const w=document.querySelector(".hero-film"); return { wrapH: w.offsetHeight, vh: innerHeight }; });
 const stateAt = async (p) => {
   await page.evaluate(({wrapH, vh, p}) => scrollTo({left:0, top:(wrapH - vh) * p, behavior:"instant"}), { ...geo, p });
-  await sleep(1800);
+  let prev = -1;
+  for (let i = 0; i < 40; i++) {
+    await sleep(150);
+    const cur = await page.evaluate(() => parseFloat(document.querySelector(".hero-film__stage").style.getPropertyValue("--hp")));
+    if (i > 1 && Math.abs(cur - prev) < 0.0005) break;
+    prev = cur;
+  }
   return page.evaluate(() => {
     const stage=document.querySelector(".hero-film__stage");
     const fg=getComputedStyle(document.querySelector(".hero-film__fg"));

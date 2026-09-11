@@ -35,6 +35,13 @@ check("Brand cards mounted (12)", st.brandsCards===12);
 const heroAt = async (p) => {
   await page.evaluate((p) => { const w=document.querySelector(".hero-film"); scrollTo({left:0, top:(w.offsetHeight-innerHeight)*p, behavior:"instant"}); }, p);
   await sleep(1500);
+  let prev = -1;
+  for (let i = 0; i < 40; i++) {
+    await sleep(150);
+    const cur = await page.evaluate(() => parseFloat(document.querySelector(".hero-film__stage").style.getPropertyValue("--hp")));
+    if (i > 1 && Math.abs(cur - prev) < 0.0005) break;
+    prev = cur;
+  }
   return page.evaluate(() => { const s=document.querySelector(".hero-film__stage"); return { pinned: Math.abs(s.getBoundingClientRect().top)<2, hp: parseFloat(s.style.getPropertyValue("--hp")) }; });
 };
 const h0=await heroAt(0), h5=await heroAt(0.5), h1=await heroAt(1);
