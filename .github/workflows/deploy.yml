@@ -29,6 +29,10 @@ jobs:
       - name: SPA fallback for deep links on Pages
         run: cp dist/index.html dist/404.html
       - uses: actions/configure-pages@v5
+        with:
+          # one-time provisioning of the Pages site (source: GitHub Actions);
+          # idempotent afterwards
+          enablement: 'enabled'
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
