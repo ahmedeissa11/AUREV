@@ -3,7 +3,10 @@
 A frontend-only, portfolio-grade marketplace for curated performance and luxury automobiles.
 Cinematic, dark, restrained: 85% black / 10% light / 5% crimson.
 
-> **Phase status:** frontend complete-scope. No backend, database, auth, or payments by design.
+> **Project status**
+> - **Frontend: complete**
+> - **Backend: not implemented** — this is intentionally a frontend-only portfolio project.
+>   No backend, database, authentication, or payments exist, by design.
 > All data flows through a mock API facade (`src/data/api.ts`) with realistic latency, so a real
 > backend can be attached without touching a single component.
 
@@ -25,7 +28,7 @@ Cinematic, dark, restrained: 85% black / 10% light / 5% crimson.
 
 | Path | Page |
 | ---- | ---- |
-| `/` | Cinematic home: hero, ticker, editorial featured collection, brand strip, performance band, magazine-style feature, pillars, concierge band |
+| `/` | Cinematic home: scroll-driven hero film (the frame relights on push-in), editorial featured collection, brand strip, performance band, magazine-style feature, pillars, concierge band |
 | `/collection` | Full inventory — search, filter sidebar (mobile drawer), sorting, URL-synced state, skeletons, empty state |
 | `/vehicle/:id` | Showroom: gallery + fullscreen viewer, specs, animated performance, equipment, curator's note, inquiry modal, similar vehicles, JSON-LD |
 | `/brands` | Editorial hover-preview index of 12 marques (inventory categories only) |
@@ -45,7 +48,7 @@ src/
 ├── state/         # LibraryContext — wishlist + compare (max 3)
 ├── layout/        # RootLayout, Header (scroll-transform), MobileMenu, SearchOverlay, Footer
 ├── components/
-│   ├── ui/        # Button, Modal/Drawer, Field, Skeleton, Ticker, Logo, icons…
+│   ├── ui/        # Button, Modal/Drawer, Field, Skeleton, Logo, icons…
 │   ├── cars/      # CarCard, QuickView, Favorite/Compare actions
 │   ├── filters/   # FilterPanel (controlled, shared by sidebar & drawer)
 │   ├── gallery/   # VehicleGallery + lightbox (keyboard + swipe)
@@ -65,9 +68,14 @@ src/
 ## Scripts
 
 ```bash
+npm install       # one-time setup
 npm run dev       # Vite dev server (0.0.0.0:5173)
 npm run build     # tsc --noEmit && vite build
+npm run preview   # serve the production build locally
 ```
+
+A headless QA harness lives in [`qa/`](qa/README.md) — `home-regression.mjs` (16 structural/behavioral
+checks) and `hero-film.spec.mjs` (scroll film, reduced motion, mobile) — run against the dev server.
 
 ## Connecting a backend later (recommended path)
 
