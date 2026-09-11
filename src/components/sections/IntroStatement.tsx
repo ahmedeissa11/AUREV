@@ -1,22 +1,29 @@
 import { Link } from "react-router-dom";
 import { Reveal } from "../../lib/motion";
 
-/* A narrow reading column directly under the ticker — no center-stage quote. */
+/* The house statement — set as a centered plate. On scroll it glides in
+   from the left, unhurried: a sweep, not a bounce. */
 export default function IntroStatement() {
   return (
-    <section aria-label="AUREV statement" className="mx-auto max-w-[1600px] container-px pb-4 pt-24 sm:pt-28">
-      <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
-        <Reveal>
-          <p className="font-mono text-[10px] uppercase tracking-[0.34em] text-ash">Monaco · est. 2016</p>
+    <section aria-label="AUREV statement" className="mx-auto max-w-[1600px] container-px pb-12 pt-32 sm:pt-40">
+      <div className="mx-auto max-w-3xl text-center">
+        <span aria-hidden="true" className="mx-auto mb-8 block h-px w-10 bg-crimson" />
+        <Reveal variant="left" className="reveal--glide">
+          <p className="font-mono text-[10px] uppercase tracking-[0.42em] text-ash">
+            Monaco · est. 2016
+          </p>
         </Reveal>
-        <Reveal delay={80}>
-          <p className="max-w-xl font-display text-[1.4rem] font-bold leading-[1.28] tracking-[-0.015em] sm:text-[1.75rem]">
+        <Reveal variant="left" className="reveal--glide" delay={160}>
+          <p className="mt-7 font-display text-[1.5rem] font-bold leading-[1.45] tracking-[-0.015em] text-mist sm:text-[1.85rem]">
             We do not list cars.{" "}
-            <span className="serif-accent font-normal">
+            <span className="serif-accent text-[1.1em] font-normal italic leading-normal text-ash">
               We represent the few worth representing — verified, documented, delivered the way
               their owners expected.
             </span>{" "}
-            <Link to="/about" className="whitespace-nowrap text-crimson-bright underline decoration-crimson/40 decoration-1 underline-offset-4 transition-colors hover:text-mist">
+            <Link
+              to="/about"
+              className="whitespace-nowrap text-crimson-bright underline decoration-crimson/40 decoration-1 underline-offset-4 transition-colors hover:text-mist"
+            >
               The house story →
             </Link>
           </p>

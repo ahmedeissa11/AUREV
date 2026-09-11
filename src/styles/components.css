@@ -147,6 +147,17 @@
   .reveal--right {
     transform: translate3d(1.25rem, 0, 0);
   }
+  /* a slower, wider left→right sweep for statement plates */
+  .reveal--glide {
+    transform: translate3d(-3.5rem, 0, 0);
+    opacity: 0;
+    transition-duration: 1.15s;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal--glide.is-in {
+    transform: none;
+    opacity: 1;
+  }
   .reveal--scale,
   .reveal--fade {
     transform: none;
