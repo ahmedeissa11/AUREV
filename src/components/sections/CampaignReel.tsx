@@ -148,17 +148,6 @@ export default function CampaignReel() {
               The collection, read as a campaign — three frames, no noise, the cars first.
             </p>
           </div>
-
-          {/* the next plate, rising from the bottom of this one */}
-          <div className="reel__teaser absolute inset-x-0 bottom-0 h-[30svh] border-t border-mist/15 bg-void" aria-hidden="true">
-            <img
-              src="/images/v-gt3.jpg"
-              alt=""
-              loading="lazy"
-              decoding="async"
-              className="size-full object-cover object-center opacity-70"
-            />
-          </div>
         </div>
       </div>
 
@@ -174,6 +163,9 @@ export default function CampaignReel() {
               className="size-full object-cover"
             />
           </div>
+          {/* soft veil over the photo's top edge — dissolves as the print
+              completes, so no hard band or neon seam ever cuts the black */}
+          <div className="reel__veil" aria-hidden="true" />
           <div className="reel__dip" aria-hidden="true" />
 
           <div className="relative z-[1] mx-auto flex h-full w-full max-w-[1600px] flex-col justify-between container-px py-[10svh]">

@@ -859,7 +859,13 @@
     );
   }
   .reel__dip { position: absolute; inset: 0; background: #050505; opacity: 0; pointer-events: none; }
-  .reel__teaser { display: none; }
+  .reel__veil {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 46%;
+    background: linear-gradient(180deg, #0a0a0a 0%, rgba(10, 10, 10, 0.6) 45%, transparent 100%);
+    pointer-events: none;
+  }
   .reel__corner {
     font-family: var(--font-mono);
     font-size: 9.5px;
@@ -903,8 +909,8 @@
   @media (prefers-reduced-motion: no-preference) {
     .reel-on .reel__img,
     .reel-on .reel__type,
-    .reel-on .reel__teaser,
-    .reel-on .reel__cap {
+    .reel-on .reel__cap,
+    .reel-on .reel__veil {
       will-change: transform, opacity;
     }
 
@@ -921,37 +927,35 @@
       opacity: clamp(0, calc(1.12 - var(--p, 0) * 2.05), 1);
     }
     .reel-on [data-reel-stage="1"] .reel__dip {
-      opacity: clamp(0, calc((var(--p, 0) - 0.82) * 1.7), 0.3);
-    }
-    .reel-on .reel__teaser {
-      display: block;
-      --q: clamp(0, calc((var(--p, 0) - 0.74) * 3.85), 1);
-      transform: translate3d(0, calc((1 - var(--q)) * 100%), 0);
+      opacity: clamp(0, calc((var(--p, 0) - 0.8) * 1.9), 0.38);
     }
 
     /* stage 02 — a photographic print uncovered from below */
     .reel-on [data-reel-stage="2"] .reel__img {
-      transform: translate3d(0, calc((1 - var(--p, 0)) * 5%), 0)
-        scale(calc(1.055 - var(--p, 0) * 0.055));
+      transform: translate3d(0, calc((1 - var(--p, 0)) * 4%), 0)
+        scale(calc(1.05 - var(--p, 0) * 0.05));
       -webkit-mask-image: linear-gradient(
         to top,
-        #000 calc(var(--p, 0) * 136% - 32%),
-        transparent calc(var(--p, 0) * 136% - 6%)
+        #000 calc(var(--p, 0) * 126% + 10%),
+        transparent calc(var(--p, 0) * 126% + 34%)
       );
       mask-image: linear-gradient(
         to top,
-        #000 calc(var(--p, 0) * 136% - 32%),
-        transparent calc(var(--p, 0) * 136% - 6%)
+        #000 calc(var(--p, 0) * 126% + 10%),
+        transparent calc(var(--p, 0) * 126% + 34%)
       );
     }
-    /* the headline hands the frame to the photograph — fully exits */
+    /* the headline steps aside before the photo reaches its eye-line */
     .reel-on [data-reel-stage="2"] .reel__fade {
-      opacity: clamp(0, calc(1.05 - var(--p, 0) * 1.9), 1);
+      opacity: clamp(0, calc(1.06 - var(--p, 0) * 2.6), 1);
       transform: translate3d(0, calc(var(--p, 0) * -1.1svh), 0);
+    }
+    .reel-on [data-reel-stage="2"] .reel__veil {
+      opacity: clamp(0, calc(1.25 - var(--p, 0) * 1.9), 1);
     }
     .reel-on [data-reel-stage="2"] .reel__dip { display: none; }
     .reel-on .reel__cap {
-      --c: clamp(0, calc((var(--p, 0) - 0.42) * 3.4), 1);
+      --c: clamp(0, calc((var(--p, 0) - 0.4) * 3.6), 1);
       opacity: var(--c);
       transform: translate3d(0, calc((1 - var(--c)) * 12px), 0);
     }
