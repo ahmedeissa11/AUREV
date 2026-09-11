@@ -120,7 +120,7 @@ export default function CampaignReel() {
 
           {/* furniture — four quiet corners */}
           <p className="reel__corner absolute left-5 top-6 sm:left-8 sm:top-8">
-            AUREV / Automotive
+            Index — 01 / 03
           </p>
           <p className="reel__corner absolute right-5 top-6 hidden sm:block sm:right-8 sm:top-8">
             Curated performance
@@ -130,22 +130,23 @@ export default function CampaignReel() {
             Signature collection
           </p>
           <p className="reel__corner absolute bottom-6 right-5 hidden text-right lg:right-8 md:block">
-            Frame 01 — Lamborghini Huracán EVO
+            Frame 01 — Huracán EVO
             <br />
-            AUREV studio, Modena
+            Atelier, Modena
           </p>
 
-          {/* poster type, cut into the photograph */}
-          <div className="reel__type pointer-events-none absolute inset-x-5 bottom-[16svh] sm:inset-x-8">
+          {/* poster type — the car's own nameplate, cut into the photograph */}
+          <div className="reel__type pointer-events-none absolute inset-x-5 bottom-[15svh] sm:inset-x-8">
+            <p className="reel__mark-eyebrow">Automobili Lamborghini · Modena</p>
             <p
               aria-hidden="true"
               className="reel__wordmark select-none"
               style={{ textShadow: "none" }}
             >
-              AUREV
+              Hurac&aacute;n <em>EVO</em>
             </p>
-            <p className="mt-3 max-w-sm font-display text-[15px] font-medium leading-snug tracking-[-0.01em] text-mist/75 sm:text-[17px]">
-              The collection, read as a campaign — three frames, no noise, the cars first.
+            <p className="reel__mark-spec">
+              Naturally aspirated V10 · 640 CV · 0–100 km/h 2.9 s — no filters, no noise
             </p>
           </div>
         </div>
