@@ -140,7 +140,7 @@ export const VEHICLES: Vehicle[] = [
         label: "Front Three-Quarter",
       },
       {
-        src: "/images/v-gt3-rear.jpg",
+        src: "/images/v-gt3-rear.jpg?v=2",
         alt: "Porsche 911 GT3 rear three-quarter view, fixed wing and mesh engine cover",
         label: "Rear / Wing",
       },

@@ -254,7 +254,7 @@ export default function CampaignReel() {
               <div className="reel__frame relative overflow-clip bg-[#0b0b0b]">
                 <div className="reel__img inset-0" aria-hidden="true">
                   <img
-                    src="/images/v-gt3-rear.jpg"
+                    src="/images/v-gt3-rear.jpg?v=2"
                     alt={`${gt3.brand} ${gt3.model} rear three-quarter with fixed wing, GT Silver`}
                     loading="lazy"
                     decoding="async"
