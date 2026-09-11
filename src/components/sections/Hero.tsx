@@ -102,29 +102,6 @@ export default function Hero() {
             decoding="async"
             onLoad={() => setLoaded(true)}
           />
-        
-          {/* scroll-driven headlight FX — image-space so lamps track the car */}
-          <div className="hero-film__imgspace" aria-hidden="true">
-            <div className="hero-film__fx">
-              <div className="fx-ign">
-                <i className="fx--bloom-near" />
-                <i className="fx--bloom-far" />
-                <i className="fx--hood" />
-              </div>
-              <div className="fx-beams">
-                <i className="fx--haze" />
-                <i className="fx--beam-near" />
-                <i className="fx--beam-far" />
-              </div>
-              <div className="fx-ign">
-                <i className="fx--pool-front" />
-                <i className="fx--pool-rear" />
-                <i className="fx--pool-core" />
-                <i className="fx--drll-near" />
-                <i className="fx--drll-far" />
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* grading — legibility, not decoration */}
