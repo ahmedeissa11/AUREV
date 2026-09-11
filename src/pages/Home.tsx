@@ -1,6 +1,5 @@
 import { useSeo } from "../lib/seo";
 import Hero from "../components/sections/Hero";
-import Ticker from "../components/ui/Ticker";
 import CampaignReel from "../components/sections/CampaignReel";
 import IntroStatement from "../components/sections/IntroStatement";
 import FeaturedCollection from "../components/sections/FeaturedCollection";
@@ -27,7 +26,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Ticker />
       <CampaignReel />
       <IntroStatement />
       <FeaturedCollection />

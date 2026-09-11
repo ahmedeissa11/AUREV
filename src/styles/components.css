@@ -661,25 +661,6 @@
     transform: scale(1);
   }
 
-  /* ---------- Marquee ticker ---------- */
-
-  .ticker {
-    display: flex;
-    overflow: hidden;
-    user-select: none;
-  }
-  .ticker__row {
-    display: flex;
-    flex: none;
-    align-items: center;
-    gap: 4rem;
-    padding-right: 4rem;
-    animation: marquee 72s linear infinite;
-  }
-  .ticker:hover .ticker__row {
-    animation-play-state: paused;
-  }
-
   /* ---------- Range slider ---------- */
 
   .lux-range {
@@ -1156,7 +1137,6 @@
     .page-enter,
     .hero-anim,
     .menu-stagger,
-    .ticker__row,
     .marquee-track,
     .skeleton,
     .scroll-cue__dot,
