@@ -5,7 +5,7 @@ import { Reveal } from "../../lib/motion";
    from the left, unhurried: a sweep, not a bounce. */
 export default function IntroStatement() {
   return (
-    <section aria-label="AUREV statement" className="mx-auto max-w-[1600px] container-px pb-12 pt-32 sm:pt-40">
+    <section aria-label="AUREV statement" className="mx-auto max-w-[1600px] container-px pb-10 pt-20 sm:pb-12 sm:pt-40">
       <div className="mx-auto max-w-3xl text-center">
         <span aria-hidden="true" className="mx-auto mb-8 block h-px w-10 bg-crimson" />
         <Reveal variant="left" className="reveal--glide">

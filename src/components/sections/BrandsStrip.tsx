@@ -85,7 +85,7 @@ export default function BrandsStrip() {
 
   return (
     <section ref={sectionRef} aria-label="Brands" className="border-y border-line bg-coal">
-      <div className="mx-auto max-w-[1600px] container-px py-20 sm:py-28">
+      <div className="mx-auto max-w-[1600px] container-px py-14 sm:py-28">
         <Reveal className="flex flex-col gap-4 sm:flex-row sm:items-baseline sm:justify-between">
           <h2 className="font-editorial text-[1.7rem] leading-snug tracking-[0.005em] text-mist sm:text-[2rem]">
             Representing twelve houses —{" "}

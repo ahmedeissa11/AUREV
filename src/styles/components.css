@@ -903,7 +903,7 @@
   }
   @media (max-width: 639px) {
     .hero-film {
-      height: 224svh;
+      height: 154svh;
     }
     .hero-film__bg {
       filter: blur(10px) brightness(0.6) saturate(0.92);
@@ -1109,9 +1109,15 @@
     }
   }
   @media (max-width: 767px) {
-    .reel__stage--1 { height: 200svh; }
-    .reel__stage--2 { height: 215svh; }
-    .reel__stage--3 { height: 240svh; }
+    .reel__stage--1 { height: 150svh; }
+    .reel__stage--2 { height: 165svh; }
+    .reel__stage--3 { height: 186svh; }
+  }
+  /*  portrait tablets get their own, mid-length film  */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .reel__stage--1 { height: 170svh; }
+    .reel__stage--2 { height: 186svh; }
+    .reel__stage--3 { height: 208svh; }
   }
 
   @media (prefers-reduced-motion: no-preference) {

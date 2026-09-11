@@ -89,7 +89,7 @@ export default function Concierge() {
   const active = KINDS.find((k) => k.id === kind)!;
 
   return (
-    <div className="mx-auto max-w-[1600px] container-px pb-28 pt-28 sm:pt-36">
+    <div className="mx-auto max-w-[1600px] container-px pb-24 pt-20 sm:pb-28 sm:pt-36">
       <header className="grid gap-10 border-b border-line pb-12 lg:grid-cols-[1.3fr_1fr] lg:items-end">
         <div>
           <p className="eyebrow">Private client desk — 24/7</p>

@@ -21,7 +21,7 @@ export default function Brands() {
   });
 
   return (
-    <div className="mx-auto max-w-[1600px] container-px pb-28 pt-28 sm:pt-36">
+    <div className="mx-auto max-w-[1600px] container-px pb-24 pt-20 sm:pb-28 sm:pt-36">
       <header className="grid gap-10 border-b border-line pb-10 lg:grid-cols-[1.1fr_1fr] lg:items-end">
         <div>
           <p className="eyebrow">Marques — index</p>

@@ -92,7 +92,7 @@ export default function About() {
   return (
     <div>
       {/* statement hero */}
-      <section className="relative mx-auto max-w-[1600px] container-px overflow-hidden pb-16 pt-36 sm:pt-48">
+      <section className="relative mx-auto max-w-[1600px] container-px overflow-hidden pb-14 pt-24 sm:pb-16 sm:pt-48">
         <Reveal>
           <p className="eyebrow">Since MMXVI — Fontvieille → worldwide</p>
         </Reveal>
@@ -234,7 +234,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="mx-auto max-w-[1600px] container-px pb-28">
+      <section className="mx-auto max-w-[1600px] container-px pb-20 sm:pb-28">
         <Reveal className="border-t border-line px-0 py-16 text-center sm:px-0">
           <h2 className="mx-auto max-w-3xl font-display text-[clamp(1.5rem,2.8vw,2.2rem)] font-bold tracking-[-0.02em]">
             Come see what the standard <span className="serif-accent font-normal">looks like.</span>

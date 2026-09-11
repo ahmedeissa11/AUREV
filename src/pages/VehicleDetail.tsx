@@ -101,7 +101,7 @@ function DetailContent({ vehicle: v }: { vehicle: Vehicle }) {
   });
 
   return (
-    <div className="mx-auto max-w-[1600px] container-px pb-24 pt-24 sm:pt-28">
+    <div className="mx-auto max-w-[1600px] container-px pb-20 pt-16 sm:pb-24 sm:pt-28">
       {/* breadcrumb */}
       <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-4 font-mono text-[10px] uppercase tracking-[0.2em] text-dim">
         <Link to="/" className="-mx-1 -my-3 px-1 py-3 transition-colors hover:text-mist">Home</Link>

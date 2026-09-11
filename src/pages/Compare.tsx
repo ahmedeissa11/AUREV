@@ -65,7 +65,7 @@ export default function Compare() {
   };
 
   return (
-    <div className="mx-auto max-w-[1600px] container-px pb-28 pt-28 sm:pt-36">
+    <div className="mx-auto max-w-[1600px] container-px pb-24 pt-20 sm:pb-28 sm:pt-36">
       <header className="border-b border-line pb-10">
         <p className="eyebrow">Side by side</p>
         <div className="mt-5 flex flex-wrap items-end justify-between gap-6">

@@ -27,7 +27,7 @@ export default function FeaturedCollection() {
   }, []);
 
   return (
-    <section id="featured" className="mx-auto max-w-[1600px] container-px py-24 sm:py-28">
+    <section id="featured" className="mx-auto max-w-[1600px] container-px py-16 sm:py-28">
       <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
         <Reveal>
           <p className="eyebrow">The collection</p>

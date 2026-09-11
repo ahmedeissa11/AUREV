@@ -27,7 +27,7 @@ export default function Wishlist() {
   };
 
   return (
-    <div className="mx-auto max-w-[1600px] container-px pb-28 pt-28 sm:pt-36">
+    <div className="mx-auto max-w-[1600px] container-px pb-24 pt-20 sm:pb-28 sm:pt-36">
       <header className="flex flex-wrap items-end justify-between gap-6 border-b border-line pb-8">
         <div>
           <p className="eyebrow">Saved on this device</p>
@@ -67,7 +67,7 @@ export default function Wishlist() {
           </div>
         </div>
       ) : (
-        <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2">
+        <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-10 sm:mt-10 sm:grid-cols-2 sm:gap-y-14">
           {saved.map((v) => (
             <CarCard key={v.id} vehicle={v} />
           ))}

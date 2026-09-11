@@ -145,7 +145,7 @@ export default function Sell() {
           <img src={asset("/images/sell-inspection.jpg")} alt="" className="size-full object-cover opacity-35 saturate-[0.7]" loading="eager" />
           <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.55),#050505_92%)]" />
         </div>
-        <div className="relative mx-auto max-w-[1600px] container-px pb-20 pt-36 sm:pb-28 sm:pt-44">
+        <div className="relative mx-auto max-w-[1600px] container-px pb-16 pt-24 sm:pb-28 sm:pt-44">
           <Reveal>
             <p className="eyebrow">Consignment — Sell with AUREV</p>
             <h1 className="mt-6 max-w-4xl font-display text-[clamp(2.2rem,5.6vw,4.4rem)] font-black uppercase leading-[0.98] tracking-[-0.035em]">

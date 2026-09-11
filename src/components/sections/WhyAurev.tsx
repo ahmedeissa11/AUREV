@@ -29,7 +29,7 @@ const PILLARS = [
 export default function WhyAurev() {
   const plateRef = useParallax(0.1);
   return (
-    <section aria-label="Why AUREV" className="mx-auto max-w-[1600px] container-px py-24 sm:py-28">
+    <section aria-label="Why AUREV" className="mx-auto max-w-[1600px] container-px py-16 sm:py-28">
       <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
         <Reveal>
           <p className="eyebrow">The standard</p>

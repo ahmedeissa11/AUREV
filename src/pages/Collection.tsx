@@ -113,7 +113,7 @@ export default function Collection() {
   });
 
   return (
-    <div className="mx-auto max-w-[1600px] container-px pb-24 pt-28 sm:pt-32">
+    <div className="mx-auto max-w-[1600px] container-px pb-20 pt-20 sm:pb-24 sm:pt-32">
       {/* head — a salesroom notice, not a poster */}
       <header className="grid gap-8 border-b border-line pb-8 lg:grid-cols-[1fr_auto] lg:items-end">
         <div>
@@ -251,7 +251,7 @@ export default function Collection() {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 sm:gap-y-14">
               {results.map((v) => (
                 <CarCard key={v.id} vehicle={v} onQuickView={setQuick} />
               ))}
