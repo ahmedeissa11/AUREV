@@ -827,6 +827,77 @@
   /* ---------- Reduced motion ---------- */
 
 
+  /* ================================================================ */
+  /*  HERO FILM — scroll-controlled 2.5D pass over the handover still */
+  /*  (no generated video asset exists; the source image is the film) */
+  /* ================================================================ */
+  .hero-film {
+    height: 242svh;
+  }
+  .hero-film__stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    width: 100%;
+    overflow: hidden;
+    background: #050505; /* never a flash of void before layers paint */
+  }
+  .hero-film__bg,
+  .hero-film__fg {
+    position: absolute;
+    will-change: transform;
+  }
+  .hero-film__bg {
+    inset: -9%;
+    transform: translate3d(calc(var(--hp, 0) * 1.4%), calc(var(--hp, 0) * 5.2%), 0)
+      scale(calc(1.14 - var(--hp, 0) * 0.02));
+    filter: blur(15px) brightness(0.6) saturate(0.92);
+  }
+  .hero-film__fg {
+    inset: 0;
+    transform-origin: 63% 68%;
+    transform: translate3d(calc(var(--hp, 0) * -1.1%), calc(var(--hp, 0) * -3.1%), 0)
+      scale(calc(1.02 + var(--hp, 0) * 0.085));
+    /* feathered bottom-plate mask: the sharp plane holds the car and floor,
+       the defocused plane owns the ceiling — the seam reads as depth of field */
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 44% 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 44% 100%);
+  }
+  .hero-film__bloom {
+    position: absolute;
+    left: 2%;
+    top: 16%;
+    width: 64%;
+    height: 58%;
+    background: radial-gradient(closest-side, rgba(190, 28, 44, 0.16), transparent 68%);
+    opacity: calc(0.34 + var(--hp, 0) * 0.5);
+    transform: translate3d(calc(var(--hp, 0) * 5%), calc(var(--hp, 0) * -3%), 0);
+    will-change: transform, opacity;
+  }
+  .hero-film__type {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    transform: translate3d(0, calc(var(--hp, 0) * -3.4%), 0);
+    opacity: clamp(0, calc(1 - var(--hp, 0) * 1.06), 1);
+    will-change: transform, opacity;
+  }
+  /* at release the frame is pure film — don't leave invisible buttons armed */
+  .hero-film__stage.is-spent .hero-film__type {
+    pointer-events: none;
+  }
+  @media (max-width: 639px) {
+    .hero-film {
+      height: 224svh;
+    }
+    .hero-film__bg {
+      filter: blur(10px) brightness(0.6) saturate(0.92);
+    }
+    .hero-film__fg {
+      transform-origin: 58% 70%;
+    }
+  }
+
   /* — editorial hero type (About): Instrument Serif with a load-time
      word-rise; ember italic accent; static & visible without motion — */
   .hero-serif {
@@ -1137,6 +1208,30 @@
       opacity: 1;
       transform: none;
       transition: none;
+    }
+    /* the film is off — a beautiful still, exactly as composed */
+    .hero-film {
+      height: auto;
+    }
+    .hero-film__stage {
+      position: relative;
+      min-height: 100svh;
+      height: auto;
+    }
+    .hero-film__bg,
+    .hero-film__bloom {
+      display: none;
+    }
+    .hero-film__fg {
+      inset: 0;
+      transform: scale(1.03);
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+    .hero-film__type {
+      position: absolute;
+      transform: none;
+      opacity: 1;
     }
     .page-enter,
     .hero-anim,
