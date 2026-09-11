@@ -25,7 +25,7 @@ export default function ConciergeBand() {
           </ButtonLink>
           <a
             href="tel:+37797001234"
-            className="inline-flex items-center gap-2.5 font-mono text-[10.5px] uppercase tracking-[0.18em] text-ash transition-colors hover:text-mist"
+            className="inline-flex items-center -my-3 gap-2.5 py-3 font-mono text-[10.5px] uppercase tracking-[0.18em] text-ash transition-colors hover:text-mist"
           >
             <IconPhone size={14} className="text-crimson" />
             +377 97 00 12 34

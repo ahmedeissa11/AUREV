@@ -104,9 +104,9 @@ function DetailContent({ vehicle: v }: { vehicle: Vehicle }) {
     <div className="mx-auto max-w-[1600px] container-px pb-24 pt-24 sm:pt-28">
       {/* breadcrumb */}
       <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-4 font-mono text-[10px] uppercase tracking-[0.2em] text-dim">
-        <Link to="/" className="transition-colors hover:text-mist">Home</Link>
+        <Link to="/" className="-mx-1 -my-3 px-1 py-3 transition-colors hover:text-mist">Home</Link>
         <span aria-hidden="true" className="h-px w-6 bg-line-strong" />
-        <Link to="/collection" className="flex items-center gap-1.5 transition-colors hover:text-mist">
+        <Link to="/collection" className="-mx-1 -my-3 flex items-center gap-1.5 px-1 py-3 transition-colors hover:text-mist">
           <IconChevronLeft size={12} /> Collection
         </Link>
         <span aria-hidden="true" className="h-px w-6 bg-line-strong" />

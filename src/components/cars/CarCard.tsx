@@ -90,7 +90,7 @@ export default function CarCard({
         {v.engine.replace(/ Twin-Turbo| Naturally Aspirated| Electric| \(.*\)/i, "")}
       </p>
 
-      <div className="mt-auto flex items-end justify-between border-t border-line pt-3">
+      <div className="mt-auto flex flex-wrap items-end justify-between gap-x-4 gap-y-2 border-t border-line pt-3">
         <div className="flex items-baseline gap-4">
           <p className="font-display text-lg font-bold tracking-[-0.02em] text-mist">{formatPrice(v.price)}</p>
           <StatusMark status={v.status} className="hidden md:inline-flex" />

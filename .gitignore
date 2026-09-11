@@ -8,3 +8,4 @@ npm-debug.log*
 
 qa-shots/
 qa/qa-shots/
+qa/audit-out.json

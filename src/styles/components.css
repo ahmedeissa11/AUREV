@@ -1277,3 +1277,22 @@
     }
   }
 }
+
+/*  Mobile touch & fit refinements (audit-driven, <768px)  */
+@media (max-width: 767.98px) {
+  .btn {
+    min-height: 44px;
+  }
+  .field__input {
+    min-height: 44px;
+  }
+}
+
+/*  Extra-narrow fit (≤479px): buttons wrap instead of bleeding  */
+@media (max-width: 479.98px) {
+  .btn {
+    padding-inline: 1.5rem;
+    white-space: normal;
+    text-align: center;
+  }
+}

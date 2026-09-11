@@ -57,7 +57,7 @@ export default function Wishlist() {
             Tap “save” on any vehicle to keep it here. The list stays on this device — ready
             whenever you are.
           </p>
-          <div className="mt-8 flex justify-center gap-4">
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
             <ButtonLink to="/collection" variant="primary" arrow>
               Browse the collection
             </ButtonLink>

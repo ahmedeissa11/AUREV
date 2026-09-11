@@ -139,9 +139,9 @@ export default function Collection() {
               onChange={(e) => setTerm(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && patch({ q: term })}
               placeholder="Brand, model…"
-              className="w-full bg-transparent text-sm outline-none placeholder:text-dim"
+              className="w-full bg-transparent text-sm outline-none placeholder:text-dim min-h-10 lg:min-h-0"
             />
-            <button type="button" aria-label="Apply search" onClick={() => patch({ q: term })} className="shrink-0 font-mono text-[9px] uppercase tracking-[0.2em] text-dim transition-colors hover:text-mist">
+            <button type="button" aria-label="Apply search" onClick={() => patch({ q: term })} className="shrink-0 -mx-3.5 -my-3.5 px-3.5 py-3.5 font-mono text-[9px] uppercase tracking-[0.2em] text-dim transition-colors hover:text-mist">
               Go
             </button>
           </div>
@@ -152,7 +152,7 @@ export default function Collection() {
             id="collection-sort"
             value={sort}
             onChange={(e) => setSp(writeParams(filters, e.target.value as SortKey), { replace: true })}
-            className="field__input !w-48 !py-2.5 text-[12px]"
+            className="field__input !w-48 !min-h-10 !py-2.5 text-[12px] lg:!min-h-0"
           >
             {SORTS.map((s) => (
               <option key={s.value} value={s.value}>
@@ -163,7 +163,7 @@ export default function Collection() {
         </div>
       </header>
 
-      <div className="mt-10 flex gap-14">
+      <div className="mt-10 flex flex-wrap gap-x-14 gap-y-10">
         {/* quiet sidebar */}
         <aside className="hidden w-60 shrink-0 lg:block" aria-label="Filters">
           <div className="sticky top-24 max-h-[calc(100dvh-7rem)] overflow-y-auto pb-6">
@@ -220,14 +220,14 @@ export default function Collection() {
             <ul className="mb-8 flex flex-wrap items-center gap-x-6 gap-y-2" aria-label="Active filters">
               {activeChips.map((chip, i) => (
                 <li key={i}>
-                  <button type="button" onClick={chip.clear} className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-mist transition-colors hover:text-crimson-bright" aria-label={`Remove filter ${chip.label}`}>
+                  <button type="button" onClick={chip.clear} className="group -my-3 inline-flex items-center gap-2 py-3 font-mono text-[10px] uppercase tracking-[0.16em] text-mist transition-colors hover:text-crimson-bright" aria-label={`Remove filter ${chip.label}`}>
                     {chip.label}
                     <IconClose size={10} className="text-dim transition-colors group-hover:text-crimson" />
                   </button>
                 </li>
               ))}
               <li>
-                <button type="button" onClick={() => setSp({}, { replace: true })} className="font-mono text-[10px] uppercase tracking-[0.16em] text-dim underline-offset-4 transition-colors hover:text-mist hover:underline">
+                <button type="button" onClick={() => setSp({}, { replace: true })} className="-my-3 py-3 font-mono text-[10px] uppercase tracking-[0.16em] text-dim underline-offset-4 transition-colors hover:text-mist hover:underline">
                   Clear all
                 </button>
               </li>

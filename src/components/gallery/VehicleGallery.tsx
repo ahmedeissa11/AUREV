@@ -64,7 +64,7 @@ export default function VehicleGallery({ images, alt }: { images: VehicleImage[]
               type="button"
               onClick={() => setFullscreen(true)}
               aria-label="Open fullscreen viewer"
-              className="grid size-8 place-items-center bg-void/80 text-mist/70 transition-colors hover:bg-void hover:text-crimson-bright"
+              className="grid size-11 place-items-center bg-void/80 text-mist/70 transition-colors hover:bg-void hover:text-crimson-bright lg:size-8"
             >
               <IconExpand size={13} />
             </button>

@@ -8,7 +8,7 @@ import { IconHeart } from "../ui/icons";
 /* ------------------------------------------------------------------ */
 
 const base =
-  "inline-flex items-center gap-1.5 font-mono text-[9.5px] font-bold uppercase tracking-[0.18em] transition-colors duration-300";
+  "-my-3 inline-flex items-center gap-1.5 py-3 font-mono text-[9.5px] font-bold uppercase tracking-[0.18em] transition-colors duration-300";
 const off = "text-dim hover:text-mist";
 const on = "text-crimson-bright";
 

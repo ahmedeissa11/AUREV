@@ -102,12 +102,12 @@ export default function Footer() {
                     }}
                     placeholder="your@email.com"
                     aria-invalid={state === "error" || undefined}
-                    className="w-full bg-transparent text-[14px] text-mist outline-none placeholder:text-dim"
+                    className="w-full bg-transparent py-2.5 text-[14px] text-mist outline-none placeholder:text-dim lg:py-0"
                   />
                   <button
                     type="submit"
                     aria-label="Subscribe to the newsletter"
-                    className="group inline-flex shrink-0 items-center gap-2 font-mono text-[10px] uppercase tracking-[0.28em] text-mist transition-colors duration-300 hover:text-crimson-bright"
+                    className="group inline-flex min-h-10 shrink-0 items-center gap-2 font-mono text-[10px] uppercase tracking-[0.28em] text-mist transition-colors duration-300 hover:text-crimson-bright"
                   >
                     Join
                     <IconArrowRight
@@ -140,7 +140,7 @@ export default function Footer() {
                   <li key={l.label}>
                     <Link
                       to={l.to}
-                      className="group relative inline-block text-[14px] text-ash transition-colors duration-300 hover:text-mist after:absolute after:-bottom-1 after:left-1/2 after:h-px after:w-0 after:-translate-x-1/2 after:bg-crimson after:transition-[width] after:duration-500 after:ease-[cubic-bezier(.16,1,.3,1)] hover:after:w-full"
+                      className="group relative -my-2.5 inline-block py-2.5 text-[14px] text-ash transition-colors duration-300 hover:text-mist after:absolute after:-bottom-1 after:left-1/2 after:h-px after:w-0 after:-translate-x-1/2 after:bg-crimson after:transition-[width] after:duration-500 after:ease-[cubic-bezier(.16,1,.3,1)] hover:after:w-full"
                     >
                       {l.label}
                     </Link>
@@ -164,7 +164,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`AUREV on ${label}`}
-                    className="group inline-flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-ash transition-colors duration-300 hover:text-mist"
+                    className="group -mx-1.5 -my-3 inline-flex items-center gap-2.5 px-1.5 py-3 font-mono text-[10px] uppercase tracking-[0.22em] text-ash transition-colors duration-300 hover:text-mist"
                   >
                     <Icon size={14} className="opacity-55 transition-opacity duration-300 group-hover:opacity-100" />
                     <span className="relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-crimson/70 after:transition-all after:duration-500 group-hover:after:w-full">
@@ -197,7 +197,7 @@ export default function Footer() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="group ml-auto inline-flex items-center gap-3 font-mono text-[9.5px] uppercase tracking-[0.22em] text-ash transition-colors duration-300 hover:text-mist"
+            className="group ml-auto -my-3 inline-flex items-center gap-3 py-3 font-mono text-[9.5px] uppercase tracking-[0.22em] text-ash transition-colors duration-300 hover:text-mist"
           >
             Back to top
             <span

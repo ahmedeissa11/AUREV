@@ -22,7 +22,7 @@ export default function IntroStatement() {
             </span>{" "}
             <Link
               to="/about"
-              className="whitespace-nowrap text-crimson-bright underline decoration-crimson/40 decoration-1 underline-offset-4 transition-colors hover:text-mist"
+              className="whitespace-nowrap -my-2 py-2 inline-flex text-crimson-bright underline decoration-crimson/40 decoration-1 underline-offset-4 transition-colors hover:text-mist"
             >
               The house story →
             </Link>

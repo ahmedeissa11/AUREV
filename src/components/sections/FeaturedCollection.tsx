@@ -106,7 +106,7 @@ function LeadFeature({ v }: { v: Vehicle }) {
           <Link
             to={`/vehicle/${v.id}`}
             aria-label={`View ${v.brand} ${v.model}`}
-            className="group ml-auto inline-flex items-center gap-2 border border-mist/25 px-4 py-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-mist transition-colors duration-300 hover:border-crimson hover:bg-crimson"
+            className="group ml-auto inline-flex items-center gap-2 border border-mist/25 px-4 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-mist transition-colors duration-300 hover:border-crimson hover:bg-crimson"
           >
             Discover
             <IconArrowRight size={13} className="transition-transform duration-300 group-hover:translate-x-0.5" />
