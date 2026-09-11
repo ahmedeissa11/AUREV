@@ -20,6 +20,7 @@ const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v);
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
+  const [litReady, setLitReady] = useState(false);
   const reduced = usePrefersReducedMotion();
   const wrapRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
@@ -101,6 +102,20 @@ export default function Hero() {
             fetchPriority="high"
             decoding="async"
             onLoad={() => setLoaded(true)}
+          />
+          {/* relit pass of the same frame — scroll crossfades it over the
+              original: lamps and underglow ignite inside the photo itself */}
+          <img
+            src="/images/hero-handover-lit.jpg"
+            alt=""
+            aria-hidden="true"
+            className={`hero-film__lit absolute inset-0 size-full object-cover object-center ${
+              litReady ? "is-ready" : ""
+            }`}
+            loading="eager"
+            fetchPriority="low"
+            decoding="async"
+            onLoad={() => setLitReady(true)}
           />
         </div>
 

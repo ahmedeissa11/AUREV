@@ -863,6 +863,21 @@
     -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 44% 100%);
     mask-image: linear-gradient(180deg, transparent 0%, #000 44% 100%);
   }
+  /* the relit frame rides the same plane, so alignment is structural */
+  .hero-film__lit {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .hero-film__lit.is-ready {
+    opacity: clamp(0, calc(var(--hp, 0) * 2.2 - 0.16), 1);
+    will-change: opacity;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-film__lit.is-ready {
+      opacity: 0;
+    }
+  }
+
   .hero-film__bloom {
     position: absolute;
     left: 2%;
