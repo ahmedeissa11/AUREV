@@ -70,9 +70,8 @@ export default function PerformanceSection() {
         <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.62)_0%,rgba(5,5,5,0.3)_34%,rgba(5,5,5,0.55)_68%,#050505_100%)]" />
       </div>
 
-      <div className="relative mx-auto flex min-h-[92svh] max-w-[1600px] flex-col justify-end container-px pt-32 pb-16 sm:pt-44 sm:pb-20">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.35fr] lg:items-end">
-          <Reveal>
+      <div className="relative mx-auto flex min-h-[92svh] max-w-[1600px] flex-col justify-between gap-14 container-px pt-20 pb-14 sm:pt-24 sm:pb-16">
+          <Reveal className="lg:max-w-[46%]">
             <p className="eyebrow">Reference vehicle — {car.brand} {car.model}</p>
             <h2 className="display-2 mt-5">
               Numbers only move you <span className="serif-accent font-normal">once.</span>
@@ -86,7 +85,7 @@ export default function PerformanceSection() {
             </Link>
           </Reveal>
 
-          <div ref={stripRef} className="grid grid-cols-2 gap-x-10 gap-y-8 lg:grid-cols-4" aria-label={`${car.brand} ${car.model} — key figures`}>
+        <div ref={stripRef} className="grid grid-cols-2 gap-x-10 gap-y-8 sm:grid-cols-4 lg:grid-cols-4 lg:w-[64%] lg:ms-auto" aria-label={`${car.brand} ${car.model} — key figures`}>
             <Reveal variant="fade">
               <Stat label="Horsepower" value={car.horsepower} suffix=" hp" active={active} />
             </Reveal>
@@ -99,7 +98,6 @@ export default function PerformanceSection() {
             <Reveal variant="fade">
               <Stat label="Torque" value={car.torque} suffix=" Nm" active={active} />
             </Reveal>
-          </div>
         </div>
       </div>
     </section>
