@@ -1,0 +1,164 @@
+@import "tailwindcss";
+@import "./styles/components.css";
+
+/* ------------------------------------------------------------------ */
+/*  AUREV — design tokens                                              */
+/*  85% black / 10% white / 5% crimson. Everything else is noise.     */
+/* ------------------------------------------------------------------ */
+
+@theme {
+  --color-void: #050505;
+  --color-coal: #0a0a0a;
+  --color-surface: #111111;
+  --color-elevated: #171717;
+  --color-line: #222220;
+  --color-line-strong: #2e2e2c;
+
+  --color-mist: #f4f1ea; /* off-white text */
+  --color-ash: #9a988f; /* secondary text */
+  --color-dim: #5e5d58; /* tertiary / disabled */
+
+  --color-crimson: #b01e2e;
+  --color-crimson-bright: #c02738;
+  --color-burgundy: #3f0d18;
+  --color-crimson-glow: rgba(176, 30, 46, 0.32);
+
+  --font-display: "Archivo", system-ui, sans-serif;
+  --font-sans: "Archivo", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-accent: "Cormorant Garamond", Georgia, serif;
+
+  --tracking-label: 0.22em;
+  --tracking-tight: -0.035em;
+
+  --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-lux-in: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                              */
+/* ------------------------------------------------------------------ */
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-line);
+  }
+
+  html {
+    background: var(--color-void);
+    color-scheme: dark;
+    color: var(--color-mist);
+    font-family: var(--font-sans);
+    scrollbar-color: var(--color-line-strong) var(--color-void);
+    scrollbar-width: thin;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  body {
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--color-crimson);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #070707;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #232323;
+    border: 3px solid #070707;
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-crimson);
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--color-crimson-bright);
+    outline-offset: 3px;
+  }
+
+  img {
+    background-color: #0b0b0b;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.022em;
+    line-height: 1.04;
+  }
+
+  /* hide number input spinners */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@utility container-px {
+  padding-inline: 1.25rem;
+  @media (min-width: 640px) {
+    padding-inline: 2.5rem;
+  }
+  @media (min-width: 1280px) {
+    padding-inline: 4.5rem;
+  }
+}
+
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-ash);
+}
+
+@utility display-1 {
+  font-size: clamp(2.1rem, 6.8vw, 5.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  overflow-wrap: break-word;
+}
+
+@utility display-2 {
+  font-size: clamp(1.7rem, 3.4vw, 3rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+
+@utility display-3 {
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}

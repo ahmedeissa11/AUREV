@@ -1,0 +1,7 @@
+{
+  "name": "AUREV — Luxury Automotive",
+  "short_name": "AUREV",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

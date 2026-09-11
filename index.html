@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>AUREV — Luxury Automotive Marketplace</title>
+    <meta
+      name="description"
+      content="AUREV is a curated marketplace of extraordinary automobiles — verified supercars, grand tourers and performance vehicles, delivered by concierge."
+    />
+    <meta name="theme-color" content="#050505" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preload" as="image" href="/images/hero-main.jpg" fetchpriority="high" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AUREV" />
+    <meta property="og:title" content="AUREV — Luxury Automotive Marketplace" />
+    <meta
+      property="og:description"
+      content="Engineered for the exceptional. A curated collection of extraordinary automobiles for those who demand more."
+    />
+    <meta property="og:image" content="/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AUREV — Luxury Automotive Marketplace" />
+    <meta
+      name="twitter:description"
+      content="Engineered for the exceptional. A curated collection of extraordinary automobiles for those who demand more."
+    />
+    <style>
+  html {
+    background: #050505;
+  }
+  body {
+    margin: 0;
+  }
+      /* Pre-hydration paint — avoids white flash on slow loads */
+      #root::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background: radial-gradient(120% 80% at 50% 0%, #101010 0%, #050505 60%);
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        html {
+          scroll-behavior: smooth;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
