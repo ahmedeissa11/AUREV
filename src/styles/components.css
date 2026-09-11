@@ -863,6 +863,198 @@
     -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 44% 100%);
     mask-image: linear-gradient(180deg, transparent 0%, #000 44% 100%);
   }
+  /* Headlight FX — image-space box (matches the sharp plane's cover crop),
+     so every lamp, beam and pool rides the car's pixels at any viewport */
+  .hero-film__imgspace {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    aspect-ratio: 1376 / 768;
+    transform: translateX(-50%);
+  }
+  @media (min-aspect-ratio: 1376/768) {
+    .hero-film__imgspace {
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: auto;
+      transform: translateY(-50%);
+    }
+  }
+  .hero-film__fx {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  /* stage A — DRL ignition: first strokes of the scroll light the car */
+  .hero-film__fx .fx-ign {
+    position: absolute;
+    inset: 0;
+    opacity: clamp(0, calc(var(--hp, 0) * 11 - 0.12), 1);
+    transform: scale(calc(0.9 + min(var(--hp, 0), 0.1) / 0.1 * 0.1));
+  }
+  /* stage B — volumetric beams: they breathe open through the whole push-in */
+  .hero-film__fx .fx-beams {
+    position: absolute;
+    inset: 0;
+    opacity: clamp(0, calc(var(--hp, 0) * 3 - 0.22), 1);
+    transform: scale(calc(0.92 + min(var(--hp, 0), 0.5) / 0.5 * 0.14));
+  }
+  .hero-film__fx .fx-ign i,
+  .hero-film__fx .fx-beams i {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%) rotate(var(--r, 0deg));
+  }
+  /* DRL bars — thin, bright, cool-white like the film reference */
+  .hero-film__fx .fx--drll-near {
+    left: 52.6%;
+    top: 61.6%;
+    width: 3.1%;
+    height: 0.8%;
+    background: radial-gradient(
+      closest-side,
+      rgba(245, 249, 255, 1),
+      rgba(205, 225, 255, 0.85) 55%,
+      transparent 100%
+    );
+  }
+  .hero-film__fx .fx--drll-far {
+    left: 59.8%;
+    top: 56.5%;
+    width: 2.1%;
+    height: 0.5%;
+    background: radial-gradient(
+      closest-side,
+      rgba(242, 247, 255, 0.98),
+      rgba(200, 222, 255, 0.75) 55%,
+      transparent 100%
+    );
+  }
+  /* cool bloom around each lens */
+  .hero-film__fx .fx--bloom-near {
+    left: 52.8%;
+    top: 62.2%;
+    width: 7.4%;
+    height: 5.6%;
+    background: radial-gradient(
+      closest-side,
+      rgba(230, 240, 255, 0.68),
+      rgba(198, 220, 255, 0.28) 46%,
+      rgba(170, 200, 255, 0.06) 68%,
+      transparent 82%
+    );
+  }
+  .hero-film__fx .fx--bloom-far {
+    left: 59.9%;
+    top: 57%;
+    width: 5.6%;
+    height: 4.2%;
+    background: radial-gradient(
+      closest-side,
+      rgba(224, 236, 255, 0.45),
+      rgba(194, 216, 255, 0.16) 50%,
+      transparent 80%
+    );
+  }
+  /* faint warm bounce of the lamps on the nose */
+  .hero-film__fx .fx--hood {
+    left: 56%;
+    top: 58.6%;
+    width: 11%;
+    height: 4.6%;
+    background: radial-gradient(closest-side, rgba(255, 236, 205, 0.16), transparent 76%);
+  }
+  /* blue underglow — strong pools on the wet floor, like the reference */
+  .hero-film__fx .fx--pool-front {
+    left: 55%;
+    top: 73.6%;
+    width: 16%;
+    height: 5%;
+    background: radial-gradient(
+      closest-side,
+      rgba(110, 180, 255, 0.95),
+      rgba(52, 126, 255, 0.55) 38%,
+      rgba(26, 80, 220, 0.18) 62%,
+      transparent 80%
+    );
+  }
+  .hero-film__fx .fx--pool-rear {
+    left: 78.5%;
+    top: 76.2%;
+    width: 17%;
+    height: 4.4%;
+    background: radial-gradient(
+      closest-side,
+      rgba(100, 170, 255, 0.82),
+      rgba(46, 116, 252, 0.45) 40%,
+      rgba(26, 80, 220, 0.13) 64%,
+      transparent 82%
+    );
+  }
+  .hero-film__fx .fx--pool-core {
+    left: 56%;
+    top: 72.4%;
+    width: 10%;
+    height: 1.4%;
+    background: radial-gradient(
+      closest-side,
+      rgba(200, 232, 255, 1),
+      rgba(110, 175, 255, 0.35) 55%,
+      transparent 100%
+    );
+  }
+  /* volumetric beams: apex at each lens, opening down-left */
+  .hero-film__fx .fx--beam-near {
+    left: 42.3%;
+    top: 65.1%;
+    width: 21%;
+    height: 6.4%;
+    --r: -16deg;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(216, 230, 255, 0.3) 26%,
+      rgba(236, 243, 255, 0.62) 82%,
+      rgba(246, 250, 255, 0.78) 100%
+    );
+  }
+  .hero-film__fx .fx--beam-far {
+    left: 51.4%;
+    top: 58.9%;
+    width: 17%;
+    height: 5%;
+    --r: -13deg;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(214, 228, 255, 0.2) 30%,
+      rgba(232, 240, 255, 0.46) 84%,
+      rgba(244, 248, 255, 0.6) 100%
+    );
+  }
+  .hero-film__fx .fx--haze {
+    left: 36%;
+    top: 68.5%;
+    width: 24%;
+    height: 7%;
+    --r: -10deg;
+    background: radial-gradient(
+      closest-side,
+      rgba(216, 230, 255, 0.36),
+      rgba(198, 216, 255, 0.15) 55%,
+      transparent 78%
+    );
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-film__fx {
+      opacity: 0;
+    }
+  }
+
   .hero-film__bloom {
     position: absolute;
     left: 2%;
