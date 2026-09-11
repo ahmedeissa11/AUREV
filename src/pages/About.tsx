@@ -95,9 +95,23 @@ export default function About() {
         <Reveal>
           <p className="eyebrow">Since MMXVI — Fontvieille → worldwide</p>
         </Reveal>
-        <h1 className="mt-8 max-w-5xl font-display text-[clamp(2.1rem,5.4vw,4.3rem)] font-black uppercase leading-[1.0] tracking-[-0.035em]">
-          We started with a single 911 and{" "}
-          <span className="serif-accent font-normal normal-case tracking-[0.005em]">a refusal</span> to compromise.
+        <h1 className="hero-serif rise-words mt-8 max-w-4xl text-[clamp(2.3rem,5.6vw,4.6rem)] leading-[1.08] tracking-[-0.008em] text-mist">
+          {[
+            "We","started","with","a","single","911","and",
+            { t: "a", ember: true },{ t: "refusal", ember: true },
+            "to","compromise.",
+          ].map((w, i) => {
+            const word: { t: string; ember?: boolean } = typeof w === "string" ? { t: w } : w;
+            return (
+              <span
+                key={word.t + i}
+                className={`w${word.ember ? " w-ember" : ""}`}
+                style={{ ["--i" as string]: i }}
+              >
+                {word.t}
+              </span>
+            );
+          })}
         </h1>
         <Reveal delay={160}>
           <p className="mt-10 max-w-xl text-[15px] leading-relaxed text-ash sm:text-base">

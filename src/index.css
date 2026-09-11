@@ -24,6 +24,9 @@
   --color-crimson-glow: rgba(176, 30, 46, 0.32);
 
   --font-display: "Archivo", system-ui, sans-serif;
+  --font-editorial: "Instrument Serif", "Cormorant Garamond", Georgia, serif;
+
+  --color-ember: #e0854c; /* the soft warm touch — accents only */
   --font-sans: "Archivo", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
   --font-accent: "Cormorant Garamond", Georgia, serif;
