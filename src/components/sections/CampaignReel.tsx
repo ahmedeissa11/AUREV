@@ -50,13 +50,11 @@ export default function CampaignReel() {
         el.style.setProperty("--p", p.toFixed(4));
         if (el === finalStage) p3 = p;
       }
-      for (let i = 0; i < rows.length; i++) {
-        const row = rows[i];
+      // discrete color states only — opacity/tick are continuous CSS math
+      for (const row of rows) {
         const t = Number(row.dataset.reelRow) || 0;
         row.classList.toggle("is-lit", p3 >= t);
         row.classList.toggle("is-active", p3 >= t && p3 < t + 0.155);
-        // the dim-to-past only applies when another row follows to take focus
-        row.classList.toggle("is-past", p3 >= t + 0.155 && i < rows.length - 1);
       }
     };
 
@@ -152,7 +150,7 @@ export default function CampaignReel() {
           </div>
 
           {/* the next plate, rising from the bottom of this one */}
-          <div className="reel__teaser absolute inset-x-0 bottom-0 h-[34svh] border-t border-mist/15 bg-void" aria-hidden="true">
+          <div className="reel__teaser absolute inset-x-0 bottom-0 h-[30svh] border-t border-mist/15 bg-void" aria-hidden="true">
             <img
               src="/images/v-gt3.jpg"
               alt=""
@@ -224,6 +222,7 @@ export default function CampaignReel() {
                     key={k}
                     data-reel-row={t}
                     className="reel__row grid grid-cols-[2.4rem_1fr_auto] items-baseline gap-x-5 border-t border-line py-4 sm:gap-x-8 sm:py-5"
+                    style={{ "--t": t } as CSSProperties}
                   >
                     <span className="n font-mono text-[10px] tracking-[0.22em]">
                       {String(i + 1).padStart(2, "0")}

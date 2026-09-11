@@ -831,9 +831,9 @@
   /* ================================================================ */
   .reel { position: relative; background: var(--color-void); }
   .reel__stage { position: relative; }
-  .reel__stage--1 { height: 300svh; }
-  .reel__stage--2 { height: 320svh; }
-  .reel__stage--3 { height: 340svh; }
+  .reel__stage--1 { height: 250svh; }
+  .reel__stage--2 { height: 270svh; }
+  .reel__stage--3 { height: 290svh; }
   .reel__pin {
     position: sticky;
     top: 0;
@@ -890,14 +890,14 @@
     .reel__figure { margin-inline: auto; }
     .reel__frame {
       aspect-ratio: auto;
-      height: 32svh;
-      width: min(100%, 52svh);
+      height: 30svh;
+      width: min(100%, 48svh);
     }
   }
   @media (max-width: 767px) {
-    .reel__stage--1 { height: 230svh; }
-    .reel__stage--2 { height: 250svh; }
-    .reel__stage--3 { height: 330svh; }
+    .reel__stage--1 { height: 200svh; }
+    .reel__stage--2 { height: 215svh; }
+    .reel__stage--3 { height: 240svh; }
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -908,86 +908,81 @@
       will-change: transform, opacity;
     }
 
-    /* stage 01 — the poster breathes, the sheet dims, the next plate rises */
+    /* stage 01 — the poster breathes, the wordmark exits cleanly, the next
+       plate rises — motion is scroll-locked (no transition lag), eased by
+       the driver's smoothstep so pins engage and release softly */
     .reel-on [data-reel-stage="1"] .reel__img {
-      transform: translate3d(0, calc(var(--p, 0) * -2.6%), 0)
-        scale(calc(1.04 + var(--p, 0) * 0.06));
+      transform: translate3d(0, calc(var(--p, 0) * -2.2%), 0)
+        scale(calc(1.03 + var(--p, 0) * 0.05));
     }
     .reel-on [data-reel-stage="1"] .reel__type {
-      transform: translate3d(0, calc(var(--p, 0) * -4.5svh), 0);
-      opacity: clamp(0.06, calc(1 - var(--p, 0) * 1.04), 1);
+      transform: translate3d(0, calc(var(--p, 0) * -3.5svh), 0);
+      /* full confidence, then a clean exit — never sits at half-opacity */
+      opacity: clamp(0, calc(1.12 - var(--p, 0) * 2.05), 1);
     }
     .reel-on [data-reel-stage="1"] .reel__dip {
-      opacity: clamp(0, calc((var(--p, 0) - 0.76) * 2.1), 0.55);
+      opacity: clamp(0, calc((var(--p, 0) - 0.82) * 1.7), 0.3);
     }
     .reel-on .reel__teaser {
       display: block;
-      --q: clamp(0, calc((var(--p, 0) - 0.7) * 3.4), 1);
+      --q: clamp(0, calc((var(--p, 0) - 0.74) * 3.85), 1);
       transform: translate3d(0, calc((1 - var(--q)) * 100%), 0);
-      opacity: calc(0.3 + 0.7 * var(--q));
     }
 
     /* stage 02 — a photographic print uncovered from below */
     .reel-on [data-reel-stage="2"] .reel__img {
-      transform: translate3d(0, calc((1 - var(--p, 0)) * 6.5%), 0)
-        scale(calc(1.065 - var(--p, 0) * 0.065));
+      transform: translate3d(0, calc((1 - var(--p, 0)) * 5%), 0)
+        scale(calc(1.055 - var(--p, 0) * 0.055));
       -webkit-mask-image: linear-gradient(
         to top,
-        #000 calc(var(--p, 0) * 132% - 28%),
-        transparent calc(var(--p, 0) * 132% - 3%)
+        #000 calc(var(--p, 0) * 136% - 32%),
+        transparent calc(var(--p, 0) * 136% - 6%)
       );
       mask-image: linear-gradient(
         to top,
-        #000 calc(var(--p, 0) * 132% - 28%),
-        transparent calc(var(--p, 0) * 132% - 3%)
+        #000 calc(var(--p, 0) * 136% - 32%),
+        transparent calc(var(--p, 0) * 136% - 6%)
       );
     }
+    /* the headline hands the frame to the photograph — fully exits */
     .reel-on [data-reel-stage="2"] .reel__fade {
-      opacity: clamp(0.15, calc(1 - var(--p, 0) * 1.65), 1);
-      transform: translate3d(0, calc(var(--p, 0) * -1.4svh), 0);
+      opacity: clamp(0, calc(1.05 - var(--p, 0) * 1.9), 1);
+      transform: translate3d(0, calc(var(--p, 0) * -1.1svh), 0);
     }
-    .reel-on [data-reel-stage="2"] .reel__dip {
-      opacity: clamp(0, calc((var(--p, 0) - 0.86) * 2.6), 0.45);
-    }
+    .reel-on [data-reel-stage="2"] .reel__dip { display: none; }
     .reel-on .reel__cap {
-      --c: clamp(0, calc((var(--p, 0) - 0.45) * 2.6), 1);
+      --c: clamp(0, calc((var(--p, 0) - 0.42) * 3.4), 1);
       opacity: var(--c);
-      transform: translate3d(0, calc((1 - var(--c)) * 14px), 0);
+      transform: translate3d(0, calc((1 - var(--c)) * 12px), 0);
     }
 
-    /* stage 03 — the sheet illuminates row by row; the plate settles */
+    /* stage 03 — the sheet illuminates with the scroll, continuously */
     .reel-on [data-reel-stage="3"] .reel__frame .reel__img {
-      transform: scale(calc(1.1 - var(--p, 0) * 0.1));
+      transform: scale(calc(1.07 - var(--p, 0) * 0.07));
     }
     .reel-on [data-reel-stage="3"] .reel__hint {
       opacity: clamp(0, calc(1 - var(--p, 0) * 4), 1);
     }
     .reel-on .reel__row {
-      opacity: 0.34;
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: clamp(0.38, calc((var(--p, 0) - var(--t, 0)) * 6.5 + 0.38), 1);
     }
-    .reel-on .reel__row.is-lit { opacity: 1; }
-    .reel-on .reel__row.is-past { opacity: 0.8; }
     .reel-on .reel__row::before {
       content: "";
       position: absolute;
       left: 0;
       top: calc(50% - 0.5px);
       height: 1px;
-      width: 0;
-      background: var(--color-crimson);
-      transition: width 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      width: calc(clamp(0, calc((var(--p, 0) - var(--t, 0)) * 9), 1) * 1.05rem);
     }
-    .reel-on .reel__row.is-lit::before { width: clamp(0.7rem, 1.4vw, 1.15rem); }
     .reel-on .reel__row .v {
       color: var(--color-ash);
-      transition: color 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: color 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .reel-on .reel__row.is-lit .v { color: var(--color-mist); }
     .reel-on .reel__row.is-active .v { color: var(--color-crimson-bright); }
     .reel-on .reel__row .n {
       color: var(--color-dim);
-      transition: color 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: color 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .reel-on .reel__row.is-active .n { color: var(--color-crimson); }
     .reel-on .reel__words .w {
