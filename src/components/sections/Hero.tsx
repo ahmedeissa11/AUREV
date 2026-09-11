@@ -15,7 +15,7 @@ export default function Hero() {
   useEffect(() => {
     if (loaded) return;
     const img = new Image();
-    img.src = "/images/hero-night.jpg?v=1";
+    img.src = "/images/hero-handover.jpg?v=1";
     img.onload = () => setLoaded(true);
   }, [loaded]);
 
@@ -29,7 +29,7 @@ export default function Hero() {
         style={{ transform: "translate3d(0, calc(var(--py, 0px) * -0.3), 0) scale(1.03)" }}
       >
         <img
-          src="/images/hero-night.jpg?v=1"
+          src="/images/hero-handover.jpg?v=1"
           alt=""
           className={`size-full object-cover object-center transition-opacity duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
             loaded ? "opacity-100" : "opacity-0"
@@ -45,6 +45,15 @@ export default function Hero() {
         aria-hidden="true"
         className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.58)_0%,rgba(5,5,5,0.12)_38%,rgba(5,5,5,0.66)_78%,#050505_100%)]"
       />
+
+      {/* narrative caption — mirrors the print mark in the campaign frame */}
+      <p
+        aria-hidden="true"
+        className="hero-anim absolute bottom-[13svh] right-5 z-[2] font-mono text-[9px] uppercase tracking-[0.34em] text-mist/70 sm:right-8"
+        style={{ ["--i" as string]: "6" }}
+      >
+        Handover, 23:14 — Port of Monaco
+      </p>
 
       {/* side rail */}
       <p
